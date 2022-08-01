@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class CafeUtil {
-    public static int getStreakGoal(int numWeeks) {
+    public int getStreakGoal(int numWeeks) {
         int sum = 0;
         for (int i = 1; i <= numWeeks; i++) {
             sum += i;
@@ -10,7 +11,7 @@ public class CafeUtil {
         return sum;
     }
 
-    public static double getOrderTotal(double[] prices) {
+    public double getOrderTotal(double[] prices) {
         double total = 0;
         for (double price : prices) {
             total += price;
@@ -45,5 +46,16 @@ public class CafeUtil {
         for (int i = 1; i <= maxQuantity; i++) {
             System.out.printf("%s - %.2f\n", i, (price * i) - ((i - 1) * discount));
         }
+    }
+
+    public boolean displayMenu(ArrayList<String> menuItems, ArrayList<Double>costs){
+        if (menuItems.size() != costs.size()) {
+            return false;
+        } else {
+            for(int i=0; i<menuItems.size(); i++) {
+                System.out.printf("%s %s -- $%s \n", i, menuItems.get(i), costs.get(i));
+            }
+        }
+        return true;
     }
 }

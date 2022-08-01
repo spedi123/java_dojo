@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class TestCafe {
     public static void main(String[] args) {
 
@@ -15,14 +16,14 @@ public class TestCafe {
         /* ============ App Test Cases ============= */
 
         System.out.println("\n----- Streak Goal Test -----");
-        System.out.printf("Purchases needed by week 10: %s \n\n", appTest.getStreakGoal(10));
+        int numWeeks = 10;
+        System.out.printf("Purchases needed by week 10: %s \n\n", appTest.getStreakGoal(numWeeks));
 
         System.out.println("----- Order Total Test-----");
         double[] lineItems = { 3.5, 1.5, 4.0, 4.5 };
         System.out.printf("Order total: %s \n\n", appTest.getOrderTotal(lineItems));
 
         System.out.println("----- Display Menu Test-----");
-
         ArrayList<String> menu = new ArrayList<String>();
         menu.add("drip coffee");
         menu.add("cappuccino");
@@ -40,5 +41,13 @@ public class TestCafe {
 
         appTest.printPriceChart1("Columbian Coffee Grounds", 15.00, 3);
         appTest.printPriceChart2("Coffee", 2.00, 0.50, 4);
+
+        ArrayList<Double> cost = new ArrayList<Double>();
+        cost.add(1.50);
+        cost.add(3.50);
+        cost.add(4.50);
+        cost.add(3.50);
+
+        appTest.displayMenu(menu, cost);
     }
 }
