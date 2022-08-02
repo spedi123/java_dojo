@@ -62,17 +62,24 @@
      * @returns {SinglyLinkedList} This list.
      */
     insertAtBack(data) {
-        let node = new ListNode(data);
-        if(this.head != null) {
-            this.head = node;
-            return;
-        } else {
-            let abc = this.head;
-            while (abc.next) {
-                abc = abc.next;
-            }
-            abc.next = node;
-        }
+      var newNode = new ListNode(data);
+
+      // if the list is empty, set the head to the node and return the list
+      if (this.isEmpty()) {
+        this.head = newNode;
+        return this;
+      }
+  
+      // if the list is not empty, loop until the end of the list
+      var runner = this.head;
+      while (runner.next !== null) {
+        runner = runner.next;
+      }
+  
+      // add the new node to the end of the list the return the list
+      runner.next = newNode;
+  
+      return this;
     }
   
     /**
