@@ -18,6 +18,10 @@ public class Test {
 		System.out.println("Orc's health is : " +h2.health);
 		
 		h1.speak();
+		
+		
+		
 	}
+	
 
 }
