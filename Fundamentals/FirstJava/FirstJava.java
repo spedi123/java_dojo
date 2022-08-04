@@ -1,7 +1,5 @@
 public class FirstJava {
-    public static void main(String[] args) {
-        System.out.println("My name is Peter An");
-        System.out.println("I am 36 years old");
-        System.out.println("My hometown is Gwang-Ju, South Korea");
+    public static void main (String[] args) {
+        System.out.println("My name is Seonggyu An \nI am 36 years old \nMy hometown is Gwang-ju, South Korea");
     }
 }
