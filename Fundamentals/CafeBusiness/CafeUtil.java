@@ -1,16 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class CafeUtil {
     public int getStreakGoal(int numWeeks) {
         int sum = 0;
-        for (int i = 1; i <= numWeeks; i++) {
+        for (int i=1; i <= numWeeks; i++) {
             sum += i;
         }
         return sum;
     }
-
     public double getOrderTotal(double[] prices) {
         double total = 0;
         for (double price : prices) {
@@ -18,44 +16,23 @@ public class CafeUtil {
         }
         return total;
     }
-
     public void displayMenu(ArrayList<String> menuItems) {
-        for (int i = 0; i < menuItems.size(); i++) {
-            System.out.printf("%s %s \n", i, menuItems.get(i));
+        for (int i=0; i<menuItems.size(); i++) {
+            System.out.println(i + " " + menuItems.get(i));
         }
     }
-
     public void addCustomer(ArrayList<String> customers) {
         System.out.println("Please enter your name:");
         String userName = System.console().readLine();
-        System.out.printf("Hello, %s! \n", userName);
-        System.out.printf("There are %s people in front of you \n", customers.size());
+        System.out.println("Hello, " + userName);
+        System.out.println("There are " + customers.size() + "people in front of you");
         customers.add(userName);
         System.out.println(customers);
     }
-
-    public void printPriceChart1(String product, double price, int maxQuantity) {
+    public void printPriceChart(String product, double price, int maxQuantity) {
         System.out.println(product);
-        for (int i = 1; i <= maxQuantity; i++) {
-            System.out.printf("%s - %.2f\n", i, (price * i));
+        for (int i=1; i<=maxQuantity; i++) {
+            System.out.println(i + " - $" + price*i);
         }
-    }
-
-    public void printPriceChart2(String product, double price, double discount, int maxQuantity) {
-        System.out.println(product);
-        for (int i = 1; i <= maxQuantity; i++) {
-            System.out.printf("%s - %.2f\n", i, (price * i) - ((i - 1) * discount));
-        }
-    }
-
-    public boolean displayMenu(ArrayList<String> menuItems, ArrayList<Double>costs){
-        if (menuItems.size() != costs.size()) {
-            return false;
-        } else {
-            for(int i=0; i<menuItems.size(); i++) {
-                System.out.printf("%s %s -- $%s \n", i, menuItems.get(i), costs.get(i));
-            }
-        }
-        return true;
     }
 }
