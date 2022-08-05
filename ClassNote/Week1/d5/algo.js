@@ -357,7 +357,34 @@
      *    should be inserted in front of.
      * @returns {boolean} To indicate whether the node was pre-pended or not.
      */
-    prepend(newVal, targetVal) {}
+     prepend(newVal, targetVal) {
+        if (this.isEmpty()) {
+          return null;
+        }
+    
+        if (this.head.data === targetVal) {
+          this.insertAtFront(newVal);
+          return this.head;
+        }
+    
+        // we already know we're not going to need to prepend before the head
+        let runner = this.head;
+    
+        while (runner) {
+          // End of list and not found.
+          if (runner.next === null) {
+            return null;
+          }
+    
+          if (runner.next.data === targetVal) {
+            const prependNode = new ListNode(newVal);
+            prependNode.next = runner.next;
+            runner.next = prependNode;
+            return prependNode;
+          }
+          runner = runner.next;
+        }
+      }
   }
   
   /******************************************************************* 
