@@ -13,7 +13,7 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fruit Store</title>
 </head>
 <body>
 	<div class="container">
