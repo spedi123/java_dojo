@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+h1 {
+    color: rgb(255,182,193)
+}
+
+.table {
+    border: 30px solid rgb(255,182,193);
+    width: 800px;
+    height: 300px;
+}
