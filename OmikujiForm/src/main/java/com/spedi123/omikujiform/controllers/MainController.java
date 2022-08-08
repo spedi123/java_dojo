@@ -41,12 +41,12 @@ public class MainController {
 			return "redirect:/";
 		}
 		
-		model.addAttribute("crust", session.getAttribute("number"));
-		model.addAttribute("cheese", session.getAttribute("city"));
-		model.addAttribute("sauce", session.getAttribute("name"));
-		model.addAttribute("topping", session.getAttribute("endeavor"));
-		model.addAttribute("topping", session.getAttribute("type"));
-		model.addAttribute("topping", session.getAttribute("comment"));
+		model.addAttribute("number", session.getAttribute("number"));
+		model.addAttribute("city", session.getAttribute("city"));
+		model.addAttribute("name", session.getAttribute("name"));
+		model.addAttribute("endeavor", session.getAttribute("endeavor"));
+		model.addAttribute("type", session.getAttribute("type"));
+		model.addAttribute("comment", session.getAttribute("comment"));
 		
 		return "show.jsp";
 	}
