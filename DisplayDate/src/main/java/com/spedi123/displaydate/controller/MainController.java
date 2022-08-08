@@ -1,7 +1,6 @@
 package com.spedi123.displaydate.controller;
 
 import java.text.SimpleDateFormat;
-import java.time.format.FormatStyle;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
