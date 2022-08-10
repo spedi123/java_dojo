@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.spedi123.springmodels.models.Dog;
 import com.spedi123.springmodels.services.DogService;
@@ -55,6 +58,24 @@ public class DogController {
 		return "newDog.jsp";
 	}
 	
+	@GetMapping("/dogs/{id}")
+	public String oneDog(@PathVariable("id")Long id, Model model) {
+		// bottom 2 line is same as line 3;
+//		Dog thisDog = dogServ.getOne(id);
+//		model.addAttribute("dog", thisDog);
+		
+		model.addAttribute("dog", dogServ.getOne(id));
+		
+		
+		return "oneDog.jsp";
+	}
+	
+	@GetMapping("/dogs/{id}/edit")
+	public String editDog(@PathVariable("id")Long id, Model model) {
+		model.addAttribute("dog", dogServ.getOne(id));
+		return "editDog.jsp";
+	}
+	
 	// ===== Action ======
 	
 	@PostMapping("/dogs/create")
@@ -66,6 +87,25 @@ public class DogController {
 		dogServ.save(newDog);
 		
 	return "redirect:/dogs";
+	}
+	
+	@PutMapping("/dogs/{id}/update")
+	public String updateDog(@Valid @ModelAttribute("dog") Dog dog, BindingResult result, @PathVariable("id")Long id) {
+		
+		if (result.hasErrors()) {
+            return "editDog.jsp";
+        } 
+		
+		dogServ.save(dog);
+		
+		return "redirect:/dogs/" + id;
+	}
+	
+	@DeleteMapping("/dogs/{id}/delete")
+	public String delteDog(@PathVariable("id")Long id) {
+		dogServ.delete(id);
+		
+		return "redirect:/dogs";
 	}
 }
 
