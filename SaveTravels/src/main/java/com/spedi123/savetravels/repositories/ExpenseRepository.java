@@ -1,11 +1,11 @@
-package com.spedi123.travel.repositories;
+package com.spedi123.savetravels.repositories;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.spedi123.travel.models.Expense;
+import com.spedi123.savetravels.models.Expense;
 
 @Repository
 public interface ExpenseRepository extends CrudRepository<Expense, Long> {

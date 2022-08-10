@@ -1,10 +1,10 @@
-package com.spedi123.travel;
+package com.spedi123.savetravels;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TravelApplicationTests {
+class SaveTravelsApplicationTests {
 
 	@Test
 	void contextLoads() {
