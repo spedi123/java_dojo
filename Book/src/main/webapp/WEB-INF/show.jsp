@@ -24,41 +24,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Welcome to the Dog Emporium!</h1>
-	
-	<h2>Here are the dogs that are available</h2>
-	<table class="table table-striped">
-		<thead class="table-dark">
-			<tr scope="row">
-				<th>Id</th>
-				<th>Name</th>
-				<th>Age</th>
-				<th>Hair Color</th>
-				<th>Created At</th>
-				<th>Updated At</th>
-			</tr>
-		</thead> 
-		<tbody>
-			<c:forEach var="dog" items="${listOfDogs}">
-				<tr scope="row">
-					<td><c:out value="${dog.id}"/></td>
-					<td><c:out value="${dog.name}"/></td>
-					<td><c:out value="${dog.age}"/></td>
-					<td><c:out value="${dog.hairColor}"/></td>
-					<td><fmt:formatDate type="date" value="${dog.createdAt}"/></td>
-					<td>
-						<c:choose>
-							<c:when test="${dog.updatedAt != null }">
-								<fmt:formatDate type="date" value="${dog.createdAt}"/>
-							</c:when>
-							<c:otherwise>
-								Dog has not be updated
-							</c:otherwise>
-						</c:choose>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<h1><c:out value="${book.title}"/></h1>
+	<h3>Description:<c:out value="${book.description}"/></h3>
+	<h3>Language:<c:out value="${book.language}"/></h3>
+	<h3>Number of Pages:<c:out value="${book.numberOfPages}"/></h3>
 </body>
 </html>
