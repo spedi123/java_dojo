@@ -21,30 +21,30 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-<title>Read Share</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>All Books</h1>
-	<table class="table table-striped">
-		<thead class="table-dark">
-			<tr scope="row">
-				<th>Id</th>
-				<th>Title</th>
-				<th>Language</th>
-				<th># Pages</th>
-			</tr>
-		</thead> 
-		<tbody>
-			<c:forEach var="book" items="${books}">
-				<tr scope="row">
-					<td><c:out value="${book.id}"/></td>
-					<td><a href="/books/${book.id}"><c:out value="${book.title}"/></a></td>
-					<td><c:out value="${book.language}"/></td>
-					<td><c:out value="${book.numberOfPages}"/></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<a href="/books/new">Create a new book!</a>
+	<h1>Dog Emporium</h1>
+	<h2>Add a new dog to the emporium</h2>
+	<form:form action="/dogs/create" method="post" modelAttribute="newDog" class="form">
+	    <p>
+	        <form:label path="name">Name</form:label>
+	        <form:errors path="name"/>
+	        <form:input path="name"/>
+	    </p>
+	    <p>
+	        <form:label path="age">Age</form:label>
+	        <form:errors path="age"/>
+	        <form:input type="number" path="age"/>
+	    </p>
+	    <p>
+	        <form:label path="hairColor">Hair Color</form:label>
+	        <form:errors path="hairColor"/>
+	        <form:input path="hairColor"/>
+	    </p>  
+	    <button class="btn btn-outline-success">Create a dog!</button>
+	</form:form>
+	
+	<a href="/dogs">Cancel</a>    	
 </body>
 </html>

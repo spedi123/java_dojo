@@ -60,5 +60,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="/dogs/new" clas="btn btn-success">Create a new Dog!</a>
 </body>
 </html>

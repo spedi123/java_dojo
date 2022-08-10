@@ -26,7 +26,7 @@ public class Dog {
     // ========== Member Variables ==============
     
     @NotNull
-    @Size(min = 2, max = 128)
+    @Size(min = 2, max = 128, message = "Dog name must be at least 2 characters")
     private String name;
     
     @NotNull

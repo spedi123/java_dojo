@@ -21,30 +21,33 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-<title>Read Share</title>
+<title>New Book</title>
 </head>
-<body>
-	<h1>All Books</h1>
-	<table class="table table-striped">
-		<thead class="table-dark">
-			<tr scope="row">
-				<th>Id</th>
-				<th>Title</th>
-				<th>Language</th>
-				<th># Pages</th>
-			</tr>
-		</thead> 
-		<tbody>
-			<c:forEach var="book" items="${books}">
-				<tr scope="row">
-					<td><c:out value="${book.id}"/></td>
-					<td><a href="/books/${book.id}"><c:out value="${book.title}"/></a></td>
-					<td><c:out value="${book.language}"/></td>
-					<td><c:out value="${book.numberOfPages}"/></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<a href="/books/new">Create a new book!</a>
+<body>    
+	<h1>New Book</h1>
+	<form:form action="/books" method="post" modelAttribute="book">
+	    <p>
+	        <form:label path="title">Title</form:label>
+	        <form:errors path="title"/>
+	        <form:input path="title"/>
+	    </p>
+	    <p>
+	        <form:label path="description">Description</form:label>
+	        <form:errors path="description"/>
+	        <form:textarea path="description"/>
+	    </p>
+	    <p>
+	        <form:label path="language">Language</form:label>
+	        <form:errors path="language"/>
+	        <form:input path="language"/>
+	    </p>
+	    <p>
+	        <form:label path="numberOfPages">Pages</form:label>
+	        <form:errors path="numberOfPages"/>     
+	        <form:input type="number" path="numberOfPages"/>
+	    </p>    
+	    <input type="submit" value="Submit"/>
+	</form:form>
+	<a href="/books">Cancel</a>    
 </body>
 </html>
