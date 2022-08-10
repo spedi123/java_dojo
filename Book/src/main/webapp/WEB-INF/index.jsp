@@ -21,41 +21,26 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-<title>Insert title here</title>
+<title>Read Share</title>
 </head>
 <body>
-	<h1>Welcome to the Dog Emporium!</h1>
-	
-	<h2>Here are the dogs that are available</h2>
+	<h1>All Books</h1>
 	<table class="table table-striped">
 		<thead class="table-dark">
 			<tr scope="row">
 				<th>Id</th>
-				<th>Name</th>
-				<th>Age</th>
-				<th>Hair Color</th>
-				<th>Created At</th>
-				<th>Updated At</th>
+				<th>Title</th>
+				<th>Language</th>
+				<th># Pages</th>
 			</tr>
 		</thead> 
 		<tbody>
-			<c:forEach var="dog" items="${listOfDogs}">
+			<c:forEach var="book" items="${books}">
 				<tr scope="row">
-					<td><c:out value="${dog.id}"/></td>
-					<td><c:out value="${dog.name}"/></td>
-					<td><c:out value="${dog.age}"/></td>
-					<td><c:out value="${dog.hairColor}"/></td>
-					<td><fmt:formatDate type="date" value="${dog.createdAt}"/></td>
-					<td>
-						<c:choose>
-							<c:when test="${dog.updatedAt != null }">
-								<fmt:formatDate type="date" value="${dog.createdAt}"/>
-							</c:when>
-							<c:otherwise>
-								Dog has not be updated
-							</c:otherwise>
-						</c:choose>
-					</td>
+					<td><c:out value="${book.id}"/></td>
+					<td><a href="/books/${book.id}"><c:out value="${book.title}"/></a></td>
+					<td><c:out value="${book.language}"/></td>
+					<td><c:out value="${book.numberOfPages}"/></td>
 				</tr>
 			</c:forEach>
 		</tbody>

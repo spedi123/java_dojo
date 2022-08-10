@@ -17,18 +17,27 @@ public class BookController {
 	@Autowired
 	BookService bookService;
 	
+	@GetMapping("/")
+	public String redirect() {
+		return "redirect:/books";
+	}
+	
+	@GetMapping("/books")
+	public String index(Model model) {
+		List<Book> books = bookService.allBooks();
+		model.addAttribute("books", books);
+		return "index.jsp";
+	}
+	
 	@GetMapping("/books/{bookId}")
-	public String index(
+	public String show(
 		Model model,
 		@PathVariable("bookId") Long bookId
 		) {
 		Book book = bookService.findBook(bookId);
-		List<Book> books = bookService.allBooks();
 		model.addAttribute("book", book);
-		model.addAttribute("books", books);
 		return "show.jsp";
 	}
-	
 }
 
 
