@@ -40,7 +40,13 @@
 				<td class="text-center"><c:out value="${expense.name}"></c:out></td>
 				<td class="text-center"><c:out value="${expense.vendor}"></c:out></td>
 				<td class="text-center">$<c:out value="${expense.amount}"></c:out></td>
-				<td class="text-center"><a href="/expenses/${expense.id}">Edit</a></td>
+				<td class="text-center">
+					<a href="/expenses/${expense.id}">Edit</a>
+					<form action="/expenses/${expense.id}/delete" method="post">
+					    <input type="hidden" name="_method" value="delete">
+					    <input type="submit" value="Delete">
+					</form>
+				</td>
 			</tr>	
 		</c:forEach>
     </tbody>
