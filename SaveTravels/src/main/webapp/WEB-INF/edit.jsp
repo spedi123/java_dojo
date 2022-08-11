@@ -24,32 +24,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 class="text-center">Save Travels</h1>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="text-center">Expense</th>
-            <th class="text-center">Vendor</th>
-            <th class="text-center">Amount</th>
-            <th class="text-center">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-		<c:forEach var="expense" items="${expenses}">
-			<tr>
-				<td class="text-center"><c:out value="${expense.name}"></c:out></td>
-				<td class="text-center"><c:out value="${expense.vendor}"></c:out></td>
-				<td class="text-center">$<c:out value="${expense.amount}"></c:out></td>
-				<td class="text-center"><a href="/expenses/${expense.id}">Edit</a></td>
-			</tr>	
-		</c:forEach>
-    </tbody>
-</table>
-<br>
 <div>
-<h1>Add an expense:</h1>
-<form:form action="/expenses" method="post" modelAttribute="expense">
-
+<h1>Edit Expense:</h1>
+<a href="/expenses">Go back</a>
+<form:form action="/expenses/${expense.id}/edit" method="post" modelAttribute="expense">
+<input type="hidden" name="_method" value="put">
 	<div>
 		<form:label path="name">Expense Name: </form:label><br />
 		<form:errors path="name"/>

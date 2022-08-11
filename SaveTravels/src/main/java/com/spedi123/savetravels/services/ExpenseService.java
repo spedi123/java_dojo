@@ -18,7 +18,7 @@ public class ExpenseService {
 	
 	// ===== Create / Update =====
 	
-	public Expense createExpense(Expense expense) {
+	public Expense newExpense(Expense expense) {
 		return expenseRepository.save(expense);
 	}
 	
