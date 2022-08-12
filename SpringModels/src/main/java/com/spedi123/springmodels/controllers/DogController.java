@@ -81,7 +81,7 @@ public class DogController {
 	@PostMapping("/dogs/create")
 	public String createDog(@Valid @ModelAttribute("newDog") Dog newDog, BindingResult result) {
 		if (result.hasErrors()) {
-            return "newDog.jsp";
+            return "dogs/newDog.jsp";
         } 
 		
 		dogServ.save(newDog);
@@ -93,7 +93,7 @@ public class DogController {
 	public String updateDog(@Valid @ModelAttribute("dog") Dog dog, BindingResult result, @PathVariable("id")Long id) {
 		
 		if (result.hasErrors()) {
-            return "editDog.jsp";
+            return "dogs/editDog.jsp";
         } 
 		
 		dogServ.save(dog);

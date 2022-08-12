@@ -71,11 +71,11 @@ public class Toy {
 		this.color = color;
 	}
 
-	public boolean isSqueaky() {
+	public boolean getIsSqueaky() {
 		return isSqueaky;
 	}
 
-	public void setSqueaky(boolean isSqueaky) {
+	public void setIsSqueaky(boolean isSqueaky) {
 		this.isSqueaky = isSqueaky;
 	}
 

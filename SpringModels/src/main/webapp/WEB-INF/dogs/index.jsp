@@ -66,10 +66,10 @@
 						</form>
 					</td>
 				</tr>
-			</c:forEach>
+			</c:forEach> 
 		</tbody>
 	</table>
-	<a href="/dogs/new" clas="btn btn-success">Create a new Dog!</a>
+	<a href="/dogs/new" class="btn btn-success">Create a new Dog!</a>
 	<a href="/toys" class="btn btn-outline-primary">Go to the Toy!</a>
 </body>
 </html>

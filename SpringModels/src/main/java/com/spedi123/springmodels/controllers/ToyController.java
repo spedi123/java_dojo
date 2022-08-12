@@ -28,8 +28,8 @@ public class ToyController {
 	
 	@GetMapping("")
 	public String allToys(@ModelAttribute("newToy")Toy newToy, Model model) {
-		model.addAttribute("allToys");
-		model.addAttribute("allDogs");
+		model.addAttribute("allToys", toyServ.getAll());
+		model.addAttribute("allDogs", dogServ.getAll());
 		
 		return "toys/toys.jsp";				
 	}
@@ -39,9 +39,12 @@ public class ToyController {
 	@PostMapping("/create")
 	public String createToy(@Valid @ModelAttribute("newToy")Toy newToy, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			model.addAttribute("allToys");
-			model.addAttribute("allDogs");
+			model.addAttribute("allToys", toyServ.getAll());
+			model.addAttribute("allDogs", dogServ.getAll());
 			return "toys/toys.jsp";
+		} else {
+			toyServ.save(newToy);
+			return "redirect:/toys"; 
 		}
 	}
 }
