@@ -60,19 +60,19 @@
 			<h2>Sell your toy:</h2>
 			<form:form action="/toys/create" method="post" modelAttribute="newToy">
 				<div class="form-group">
-					<form:label path:"name">Name</form:label>>
-					<form:input path:"name"/>
-					<form:errors path:"name"/>
+					<form:label path="name">Name</form:label>>
+					<form:input path="name"/>
+					<form:errors path="name"/>
 				</div>
 				<div class="form-group">
-					<form:label path:"color">Color</form:label>>
-					<form:input path:"color"/>
-					<form:errors path:"color"/>
+					<form:label path="color">Color</form:label>>
+					<form:input path="color"/>
+					<form:errors path="color"/>
 				</div>
 				<div class="form-group">
-					<form:label path:"isSqueaky">Is Squeaky</form:label>>
+					<form:label path="isSqueaky">Is Squeaky</form:label>>
 					<form:checkbox path="isSqueaky"></form:checkbox>>
-					<form:errors path:"isSqueaky"/>
+					<form:errors path="isSqueaky"/>
 				</div>
 				<div class="form-group">
 					<form:select path="dog">
