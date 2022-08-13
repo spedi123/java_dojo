@@ -24,37 +24,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="d-flex container">
-		<div class="col1">
-			<h1>New Dojo</h1>
-			<form:form action="/dojos/new" method="post" modelAttribute="dojo">
-				<div class="mb-3">
-					<form:label path="name">Name :</form:label>
-					<div>
-						<form:errors path="name"/>
-					</div>
-					<form:input type="name" path="name" id="name" />
-				</div>
-				<input class="btn btn-success" type="submit" value="Create" />
-				<a href="/ninjas/new" class="btn btn-primary">Add new Ninja</a>
-			</form:form>
-		</div>
-		<div class="col1">
-			<table class="table table-striped">
-			    <thead>
-			        <tr>
-			            <th>Dojo Name</th>
-			        </tr>
-			    </thead>
-			    <tbody>
-			         <c:forEach var="dojo" items="${dojos}">
-			         	<tr>
-			         		<td><a href="/dojos/${dojo.id}"><c:out value="${dojo.name}"/></a></td>
-			         	</tr>
-			         </c:forEach>
-			    </tbody>
-		    </table>
-		</div>
+ 	<h1><c:out value="${dojos.name}"/> Location Ninjas</h1>
+	<div>
+		<table class="table table-striped">
+		    <thead>
+		        <tr>
+		            <th>First Name</th>
+		            <th>Last Name</th>
+		            <th>Age</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		         <c:forEach var="ninja" items="${dojos.ninjas}">
+		         	<tr>
+		         		<td><c:out value="${ninja.firstName}"/></td>
+		         		<td><c:out value="${ninja.lastName}"/></td>
+		         		<td><c:out value="${ninja.age}"/></td>
+		         	</tr>
+		         </c:forEach>
+		    </tbody>
+	    </table>
 	</div>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.spedi123.dojos.models.Dojo;
@@ -34,6 +35,12 @@ public class DojoController {
 		List<Dojo> dojos = dojoServ.getAll();
 		model.addAttribute("dojos", dojos);
 		return "index.jsp";
+	}
+	
+	@GetMapping("/dojos/{id}")
+	public String dojoDetail(@PathVariable("id")Long id, Model model) {
+		model.addAttribute("dojos", dojoServ.getOne(id));
+		return "dojodetail.jsp";
 	}
 	
 	// ========== Action ==========

@@ -24,37 +24,43 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="d-flex container">
-		<div class="col1">
-			<h1>New Dojo</h1>
-			<form:form action="/dojos/new" method="post" modelAttribute="dojo">
-				<div class="mb-3">
-					<form:label path="name">Name :</form:label>
-					<div>
-						<form:errors path="name"/>
-					</div>
-					<form:input type="name" path="name" id="name" />
+	<div>
+		<h1>New Ninja</h1>
+		<div>
+			<form:form action="/ninjas/new" method="post" modelAttribute="newNinja">
+			 	<div>
+				<form:label path="dojo">Dojo:</form:label>
+				<form:select path="dojo">
+					<c:forEach var="dojo" items="${dojos}">
+		         		<option value="${dojo.id}">${dojo.name}</option>
+		       	  	</c:forEach>
+				</form:select>
 				</div>
-				<input class="btn btn-success" type="submit" value="Create" />
-				<a href="/ninjas/new" class="btn btn-primary">Add new Ninja</a>
+				<div>
+					<form:label path="firstName">First Name:</form:label>
+					<div>
+						<form:errors path="firstName"/>
+					</div>
+					<form:input type="text" path="firstName"/>
+				</div>
+				<div>
+					<form:label path="lastName">Last Name:</form:label>
+					<div>
+						<form:errors path="lastName"/>
+					</div>
+					<form:input type="text" path="lastName"/>
+				</div>
+				<div>
+					<form:label path="age">Age:</form:label>
+					<div>
+						<form:errors path="age"/>
+					</div>
+					<form:input type="number" path="age"/>
+				</div>
+				<input class="btn btnsuccess" type="submit" value="Create" />
 			</form:form>
 		</div>
-		<div class="col1">
-			<table class="table table-striped">
-			    <thead>
-			        <tr>
-			            <th>Dojo Name</th>
-			        </tr>
-			    </thead>
-			    <tbody>
-			         <c:forEach var="dojo" items="${dojos}">
-			         	<tr>
-			         		<td><a href="/dojos/${dojo.id}"><c:out value="${dojo.name}"/></a></td>
-			         	</tr>
-			         </c:forEach>
-			    </tbody>
-		    </table>
-		</div>
+		<a href="/dojos">Dashboard</a>
 	</div>
 </body>
 </html>
