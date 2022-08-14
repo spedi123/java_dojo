@@ -31,13 +31,9 @@ public class User {
 
 	// ========== Member Variables ==========
 
-    @NotEmpty(message="First name is required!")
+    @NotEmpty(message="Name is required!")
     @Size(min=2, max=45, message="Username must be between 2 and 45 characters")
-    private String firstName;
-    
-    @NotEmpty(message="Last name is required!")
-    @Size(min=2, max=45, message="Username must be between 2 and 45 characters")
-    private String lastName;
+    private String userName;
     
     @NotEmpty(message="Email is required!")
     @Email(message="Please enter a valid email!")
@@ -64,7 +60,7 @@ public class User {
 
 	// =========== Relationships ==========
 
-	@OneToMany(mappedBy="dorm", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Book> books;
 
 	// ========== Data Creation Event ==========
@@ -91,20 +87,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmail() {
