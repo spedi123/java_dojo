@@ -25,30 +25,24 @@
 </head>
 <body>
 	<div class="container">
-	<h1 class="text-center">Dorms</h1>
-	<div>
-		<a href="/dorms/new">Add a new dorm</a>
-	</div>
-	<div>
-		<a href="/students/new">Add a new student</a>
-	</div>
-
-		<table class="table table-striped ">
-			<thead>
-				<tr>
-					<th>Dorm</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="dorm" items="${dorms}">
-					<tr>
-						<td><c:out value="${dorm.name}"/></td>
-						<td><a href="/dorms/${dorm.id}">See Students</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
+			<div class="text-center">
+				<h1>New Dorm</h1>
+			</div>
+			<div>
+				<a href="/dorms">Dashboard</a>
+			</div>
+			<div>
+				<form:form action="/dorms/new" method="post" modelAttribute="dorm">
+				<div>
+					<form:label path="name">Name:</form:label>
+					<form:input type="text" path="name"></form:input>
+					<div>
+						<form:errors path="name"/>
+					</div>
+				</div>
+					<input type="submit" value="Add"/>
+				</form:form>
+			</div>
+		</div>
 </body>
 </html>
