@@ -1,4 +1,5 @@
 package com.spedi123.bookclub.services;
+import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -68,6 +69,10 @@ public class UserService {
 	
 	public User getOne(Long id) {
 		return userRepo.findById(id).orElse(null);
+	}
+	
+	public List<User> getAll() {
+		return userRepo.findAll();
 	}
 	
 	

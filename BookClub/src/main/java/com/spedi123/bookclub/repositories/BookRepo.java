@@ -12,4 +12,5 @@ public interface BookRepo extends CrudRepository<Book, Long>{
 	
 	List<Book> findAll();
 	public Book findByTitle(String title);
+	List<Book> findByUserIdIs(Long userId);
 }

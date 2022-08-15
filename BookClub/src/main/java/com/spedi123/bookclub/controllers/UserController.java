@@ -20,6 +20,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userServ;
+//	
+//	@Autowired
+//	private BookService bookServ;
 	
 	// ========== Display ==========
 
@@ -48,10 +51,11 @@ public class UserController {
 //		
 //		Long uuid = (Long) session.getAttribute("uuid");
 //		model.addAttribute("user", userServ.getOne(uuid));
+//		model.addAttribute("books", bookServ.getAll());
 //		
 //		return "book_add.jsp";
 //	}
-//	
+	
 	
 	// ========== Action ==========
 	
