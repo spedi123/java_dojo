@@ -24,12 +24,12 @@
 <title>Read Share</title>
 </head>
 <body>
-	<div class="container">
+		<div class="container">
 		<h1>Change your Entry</h1>
 		<a href="/logout">Logout</a>
 		<a href="/books">Back to the shelves</a>
-	
-		<form:form action="/books/${book.id}" method="post" modelAttribute="book">
+
+		<form:form action="/books/edit/${book.id}" method="post" modelAttribute="book">
 		<input type="hidden" name="_method" value="put">
 			<div class="mb-3">
 				<form:label class="form-label" path="title">Title:</form:label>

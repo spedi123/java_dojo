@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.spedi123.bookclub.models.Book;
 import com.spedi123.bookclub.services.BookService;
@@ -62,9 +63,9 @@ public class BookController {
     	return "book_detail.jsp";
 	}
 	
-	@GetMapping("/books/{id}/edit")
+	@GetMapping("/books/edit/{id}")
     public String editBook(@PathVariable("id") Long id, Model model, HttpSession session) {
-    	if(session.getAttribute("user")==null) {
+    	if(session.getAttribute("uuid")==null) {
 			return "redirect:/";
 		}
     	Book book = bookServ.getOne(id);
@@ -72,7 +73,7 @@ public class BookController {
     	return "book_edit.jsp";
     }
 	
-    @PostMapping("/books/{id}/edit")
+    @PutMapping("/books/edit/{id}")
     public String updateBook(@PathVariable("id") Long id, @Valid @ModelAttribute("book") Book book , BindingResult result, Model model, HttpSession session) {
     	if(result.hasErrors()) {
         	return "book_edit.jsp";
