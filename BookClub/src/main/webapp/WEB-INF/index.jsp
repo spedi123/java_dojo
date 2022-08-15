@@ -21,9 +21,57 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-<title>Insert title here</title>
+<title>Read Share</title>
 </head>
 <body>
+	<div class="container">
+		<h1>Login and Registration</h1>
+		<div class="main d-flex">
+			<div class="register col-9">
+				<h2>Register</h2>
+				<form:form action="/register" method="post" modelAttribute="newUser">
+					<div class="form-group">
+						<form:label path="user_name">User Name</form:label>
+						<form:input type="text" path="user_name"/>
+						<form:errors class="text-danger" path="user_name"/>
+					</div>
+					<div class="form-group">
+						<form:label path="email">Email</form:label>
+						<form:input type="text" path="email"/>
+						<form:errors class="text-danger" path="email"/>
+					</div>
+					<div class="form-group">
+						<form:label path="password">Password</form:label>
+						<form:input type="text" path="password"/>
+						<form:errors class="text-danger" path="password"/>
+					</div>
+					<div class="form-group">
+						<form:label path="confirmPassword">Confirm Password</form:label>
+						<form:input type="text" path="confirmPassword"/>
+						<form:errors class="text-danger" path="confirmPassword"/>
+					</div>
+					<input type="submit" value="Register" class="btn btn-primary" />
+				</form:form>
+			</div>
+			<div class="login col-9">
+				<h2>Login</h2>
+				<form:form action="/login" method="post" modelAttribute="newLogin">
+					<div class="form-group">
+						<form:label path="email">Email</form:label>
+						<form:input type="text" path="email"/>
+					</div>
+					<div class="form-group">
+						<form:label path="password">Password</form:label>
+						<form:input type="text" path="password"/>
+					</div>
+					<input type="submit" value="Login" class="btn btn-primary" />
+					<form:errors class="text-danger" path="email"/>
+					<form:errors class="text-danger" path="password"/>
+				</form:form>
+			</div>
+		</div> 
+		<h3 class="text-danger"><c:out value="${ error }"/></h3>
+	</div>
 
 </body>
 </html>
