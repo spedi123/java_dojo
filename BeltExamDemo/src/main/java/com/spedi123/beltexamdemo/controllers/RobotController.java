@@ -107,7 +107,7 @@ public class RobotController {
 	}
 	
 	@PutMapping("/{id}/update")
-	public String updateRobot(@Valid @ModelAttribute("robot")Robot robot, @PathVariable("id")Long id, BindingResult result, HttpSession session) {
+	public String updateRobot(@PathVariable("id")Long id, @Valid @ModelAttribute("robot")Robot robot, BindingResult result, HttpSession session) {
 		
 		if(session.getAttribute("uuid")==null) {
 			return "redirect:/";

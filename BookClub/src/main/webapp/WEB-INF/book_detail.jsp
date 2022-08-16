@@ -40,6 +40,7 @@
 		<c:if test="${user.id == book.user.id }">
 			<a class="btn btn-success" href="/books/edit/${book.id}">Edit</a>
 		</c:if>
+		
 	</div>
 </body>
 </html>

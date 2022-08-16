@@ -29,6 +29,7 @@
 		<a href="/logout">Logout</a>
 		<h3>Books from everyone's shelves</h3>
 		<a href="/books/new">Add to my shelf</a>
+		<a href="/bookrent">Rent a book</a>
 		<table class="table table-striped">
 			<thead class="table-dark">
 				<tr scope="row">

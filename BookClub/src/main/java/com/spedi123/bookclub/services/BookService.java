@@ -36,6 +36,10 @@ public class BookService {
 		return bookRepo.findById(id).orElse(null);
 	}
 	
+	public List<Book> myBooks(User user){
+		return bookRepo.findByUserIdIs(user.getId());
+	}
+	
 	public List<Book> unborrowedBooks(User user){
 		return bookRepo.findByBorrowerIdIsOrUserIdIs(null, user.getId());
 	}
@@ -54,7 +58,5 @@ public class BookService {
 		book.setBorrower(null);
 		bookRepo.save(book);
 	}
-	
-
 
 }
