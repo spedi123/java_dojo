@@ -40,7 +40,7 @@
      * - Space: O(1) constant.
      * @param {number} num The num to add.
      */
-     nsert(num) {
+     insert(num) {
         this.heap.push(num);
         let currIndex = this.heap.length -1;
         while(this.heap[currIndex] < this.heap[Math.floor(currIndex/2)]){
