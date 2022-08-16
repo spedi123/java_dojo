@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Table(name="books")
 public class Book {
 
-	public Book() {}
+	
 	
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,11 +33,31 @@ public class Book {
 		@Size(min=1, max=255, message="Thoughts must be between 1-255 characters")
 		private String thought;
 		
+		
+		// ========== Constructors ==========
+
+		public Book() {}
+		
+		public Book(String title, String author, String thought, User user) {
+			this.title = title;
+			this.author = author;
+			this.thought = thought;
+			this.user = user;
+			
+		}
+		
+		
+		// =========== Relationships ==========
+		
 		@ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="user_id")
 		private User user;
-
 		
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name="borrower_id")
+		private User borrower;
+		
+		// =========== Getter and Setter ==========
 
 		public Long getId() {
 			return id;
@@ -77,6 +97,14 @@ public class Book {
 
 		public void setThought(String thought) {
 			this.thought = thought;
+		}
+		
+		public User getBorrower() {
+			return borrower;
+		}
+
+		public void setBorrower(User borrower) {
+			this.borrower = borrower;
 		}
 		
 	

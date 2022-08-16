@@ -11,6 +11,8 @@ import com.spedi123.bookclub.models.Book;
 public interface BookRepo extends CrudRepository<Book, Long>{
 	
 	List<Book> findAll();
-	public Book findByTitle(String title);
 	List<Book> findByUserIdIs(Long userId);
+	List<Book> findByBorrowerIdIs(Long userId);
+	List<Book> findByBorrowerIdIsOrUserIdIs(Long borrowerId, Long userId);
+	
 }
