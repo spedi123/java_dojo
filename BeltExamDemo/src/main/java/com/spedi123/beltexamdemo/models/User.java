@@ -1,5 +1,4 @@
-package com.spedi123.bookclub.models;
-
+package com.spedi123.beltexamdemo.models;
 
 import java.util.Date;
 import java.util.List;
@@ -32,9 +31,13 @@ public class User {
 
 	// ========== Member Variables ==========
 
-    @NotEmpty(message="User name is required!")
+    @NotEmpty(message="First name is required!")
     @Size(min=2, max=45, message="Username must be between 2 and 45 characters")
-    private String user_name; //userName two table row
+    private String firstName;
+    
+    @NotEmpty(message="Last name is required!")
+    @Size(min=2, max=45, message="Username must be between 2 and 45 characters")
+    private String lastName;
     
     @NotEmpty(message="Email is required!")
     @Email(message="Please enter a valid email!")
@@ -61,9 +64,8 @@ public class User {
 
 	// =========== Relationships ==========
 
-
-	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Book> books;
+	@OneToMany(mappedBy="creator", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Robot> robots;
 
 	// ========== Data Creation Event ==========
 
@@ -81,22 +83,6 @@ public class User {
 	
 	// ========== Getters and Setters ==========
 
-	public String getUser_name() {
-		return user_name;
-	}
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
-
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -105,6 +91,21 @@ public class User {
 		this.id = id;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
 	public String getEmail() {
 		return email;
@@ -145,5 +146,20 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
+
+	public List<Robot> getRobots() {
+		return robots;
+	}
+
+	public void setRobots(List<Robot> robots) {
+		this.robots = robots;
+	}
 }
+
+
+
+
+
+
+
+

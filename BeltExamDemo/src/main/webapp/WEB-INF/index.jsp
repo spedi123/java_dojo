@@ -21,7 +21,7 @@
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-<title>Read Share</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<div class="container">
@@ -31,9 +31,14 @@
 				<h2>Register</h2>
 				<form:form action="/register" method="post" modelAttribute="newUser">
 					<div class="form-group">
-						<form:label path="user_name">User Name</form:label>
-						<form:input type="text" path="user_name"/>
-						<form:errors class="text-danger" path="user_name"/>
+						<form:label path="firstName">First Name</form:label>
+						<form:input type="text" path="firstName"/>
+						<form:errors class="text-danger" path="firstName"/>
+					</div>
+					<div class="form-group">
+						<form:label path="lastName">Last Name</form:label>
+						<form:input type="text" path="lastName"/>
+						<form:errors class="text-danger" path="lastName"/>
 					</div>
 					<div class="form-group">
 						<form:label path="email">Email</form:label>
