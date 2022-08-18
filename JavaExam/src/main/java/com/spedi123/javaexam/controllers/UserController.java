@@ -31,7 +31,7 @@ public class UserController {
 	@GetMapping("/")
 	public String index(Model model, HttpSession session) {
 		if(session.getAttribute("uuid") != null) {
-			return "redirect:/dashboard";
+			return "redirect:/courses";
 		}
   		
 		model.addAttribute("newUser", new User());
@@ -40,17 +40,17 @@ public class UserController {
 		return "index.jsp";
 	}
 	
-	@GetMapping("/dashboard")
-	public String welcome(HttpSession session, Model model) {
-		if(session.getAttribute("uuid") == null) {
-			return "redirect:/logout";
-		}
-		
-		Long uuid = (Long) session.getAttribute("uuid");
-		model.addAttribute("user", userServ.getOne(uuid));
-		
-		return "welcome.jsp";
-	}
+//	@GetMapping("/dashboard")
+//	public String welcome(HttpSession session, Model model) {
+//		if(session.getAttribute("uuid") == null) {
+//			return "redirect:/logout";
+//		}
+//		
+//		Long uuid = (Long) session.getAttribute("uuid");
+//		model.addAttribute("user", userServ.getOne(uuid));
+//		
+//		return "welcome.jsp";
+//	}
 	
 	
 	// ========== Action ==========
@@ -67,7 +67,7 @@ public class UserController {
 		
 		session.setAttribute("uuid", user.getId());		
 		
-		return "redirect:/dashboard";
+		return "redirect:/courses";
 	}
 	
 	@PostMapping("/login")
@@ -83,7 +83,7 @@ public class UserController {
 		session.setAttribute("uuid", user.getId());
 		
 		
-		return "redirect:/dashboard";
+		return "redirect:/courses";
 	}
 	
 	@GetMapping("/logout")

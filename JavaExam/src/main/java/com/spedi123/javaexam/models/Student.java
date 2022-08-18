@@ -3,65 +3,65 @@ package com.spedi123.javaexam.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="users")
-public class User {
-	
+@Table(name="students")
+public class Student {
 	// ========== Primary Key ==========
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	// ========== Member Variables ==========
 
-    @NotEmpty(message="First name is required!")
-    @Size(min=2, max=45, message="Username must be between 2 and 45 characters")
-    private String name;
-    
-    @NotEmpty(message="Email is required!")
-    @Email(message="Please enter a valid email!")
-    private String email;
-    
-    @NotEmpty(message="Password is required!")
-    @Size(min=8, max=128, message="Password must be between 8 and 128 characters")
-    private String password;
-    
-    @Transient
-    @NotEmpty(message="Confirm Password is required!")
-    @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
-    private String confirmPassword;
+	@NotNull
+	@Size(min = 2, max = 128, message = "Student name must be at least 2 characters.")
+	private String studnetName;
+	
+	@NotNull
+	@Email(message="Please enter a valid email!")
+	private String email;
+	    
+	@NotNull
+	@Min(0)
+	private int age;
 
-    // ========== Data Creation Tracker ==========
-    
+
+	// ========== Data Creation Tracker ==========
+
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
 
 	// ========== Constructors ==========
-	
-	public User() {};
 
+	public Student() {}
 	// =========== Relationships ==========
+	
+	 @ManyToMany(fetch = FetchType.LAZY)
+	    @JoinTable(
+	        name = "courses_students", 
+	        joinColumns = @JoinColumn(name = "student_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "course_id")
+	    )
+	    private List<Course> courses;
 
-	@OneToMany(mappedBy="instructor", cascade=CascadeType.ALL,  fetch=FetchType.LAZY)
-	private List<Course> courses;
 
 	// ========== Data Creation Event ==========
 
@@ -87,12 +87,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getStudnetName() {
+		return studnetName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setStudnetName(String studnetName) {
+		this.studnetName = studnetName;
 	}
 
 	public String getEmail() {
@@ -103,20 +103,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public int getAge() {
+		return age;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Date getCreatedAt() {
@@ -134,7 +126,7 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
+
 	public List<Course> getCourses() {
 		return courses;
 	}
@@ -142,12 +134,5 @@ public class User {
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
+	
 }
-
-
-
-
-
-
-
-
