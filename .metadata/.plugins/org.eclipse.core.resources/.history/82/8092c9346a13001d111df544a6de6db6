@@ -1,0 +1,7 @@
+package com.spedi123.demoproject;
+
+public interface Living {
+	void speak() {
+		System.out.println("I am speaking!!!");
+	}
+}

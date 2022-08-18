@@ -1,0 +1,42 @@
+package com.spedi123.studentroaster.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.spedi123.studentroaster.services.DormService;
+import com.spedi123.studentroaster.services.StudentService;
+
+@Controller
+public class StudentController {
+	
+	@Autowired
+	private StudentService studentServ;
+	
+	@Autowired
+	private DormService dormServ;
+	
+	
+	// ========== Display ==========
+
+	@GetMapping("/students/new")
+	public String ninjas(@ModelAttribute("newNinja")Ninja newNinja, Model model) {
+		model.addAttribute("dojos", dojoServ.getAll());
+		model.addAttribute("ninjas", ninjaServ.getAll());
+		return "addninja.jsp";				
+	}
+	
+	// ========== Action ==========
+
+	@PostMapping("/students/new")
+	public String createToy(@Valid @ModelAttribute("newNinja")Ninja newNinja, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("dojos", dojoServ.getAll());
+			model.addAttribute("ninjas", ninjaServ.getAll());
+			return "add.jsp";
+		} else {
+			ninjaServ.save(newNinja);
+			return "redirect:/dojos"; 
+		}
+	}
+	
+}

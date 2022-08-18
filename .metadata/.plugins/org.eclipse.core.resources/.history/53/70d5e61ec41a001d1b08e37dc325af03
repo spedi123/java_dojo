@@ -1,0 +1,6 @@
+package com.spedi123.dojos.repositories;
+
+@Repository
+public interface NinjaRepository extends CrudRepository<Ninja, Long>{
+	List<Toy> fidAll();
+}

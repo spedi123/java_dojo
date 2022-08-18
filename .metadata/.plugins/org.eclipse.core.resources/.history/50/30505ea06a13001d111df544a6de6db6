@@ -1,0 +1,13 @@
+package com.spedi123.demoproject;
+
+public class Orc implements Living {
+
+	public Orc() {
+		// TODO Auto-generated constructor stub
+		protected int strength;
+		protected int dexterity;
+		protected int intelligence;
+		protected int health;
+	}
+
+}

@@ -1,0 +1,8 @@
+package com.spedi123.travel.repositories;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ExpenseRepository extends CrudRepository<Expense, Long> {
+
+}

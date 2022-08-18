@@ -1,0 +1,24 @@
+package com.spedi123.springdemo.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class HomeController {
+	@GetMapping("/")
+	public String index(){
+		return "index.jsp";
+	}
+	
+	@PostMapping("/submit")
+	public String submitForm(
+		@RequestParam(value="curst") String crust,
+		@RequestParam(value="cheese") String cheese,
+		@RequestParam(value="sauce") String sauce,
+		@RequestParam(value="topping") String topping,
+			){
+		
+	}
+}

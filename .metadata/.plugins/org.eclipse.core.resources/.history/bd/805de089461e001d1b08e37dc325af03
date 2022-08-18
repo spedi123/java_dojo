@@ -1,0 +1,39 @@
+package com.spedi123.javaexam.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.spedi123.javaexam.services.CourseService;
+
+@Controller
+public class CourseController {
+
+	@Autowired
+	private CourseService courseServ;
+	
+	// ========== Display ==========
+
+	
+	@GetMapping("/courses")
+	public String dashboard(HttpSession session, Model model) {
+		if(session.getAttribute("uuid")==null) {
+			return "redirect:/";
+		}
+		
+		User user = userServ.getOne((Long)session.getAttribute("uuid"));
+		List<Course> allcourses = courseServ.getAll();
+		
+		model.addAttribute("loggedInUser", user);
+		model.addAttribute("allcourses", allcourses);
+		
+		return "robots.jsp";
+	}
+	
+	
+	// ========== Action ==========
+	
+	
+	
+	
+	
+}

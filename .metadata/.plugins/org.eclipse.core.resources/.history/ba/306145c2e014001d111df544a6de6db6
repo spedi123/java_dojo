@@ -1,0 +1,18 @@
+package com.spedi123.springdemo.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	@RequestMapping("/")
+	public String index() {
+		return "Hello World";
+	}
+	
+	@RequstMapping("/pizza/{number}")
+	public String pizza(@PathVariable("number")String number) {
+		return "I like pizza3";
+	}
+	
+}

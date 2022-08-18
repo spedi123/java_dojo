@@ -1,0 +1,23 @@
+package com.spedi123.languages.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.spedi123.languages.services.LanguageService;
+
+@Controller
+public class LnaguageController {
+	
+	@Autowired
+	private LanguageService languageServ;
+	
+	// Restful Routing Style
+	//  /languages
+	//  /languages (post)
+	//  /languages/{id}
+	//  /languages/{id}/edit
+	//  /languages/{id}  (put)
+	//  /languages/{id}  (delete)
+	
+	
+}

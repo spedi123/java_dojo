@@ -1,0 +1,11 @@
+package com.spedi123.springdemo.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	@RequestMapping("/")
+	public String index() {
+		
+	}
+}

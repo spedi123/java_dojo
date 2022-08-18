@@ -1,0 +1,7 @@
+package com.spedi123.dojos.repositories;
+
+@Repository
+public interface DojoRepository extends CrudRepository<Dojo, Long> {
+	List<Dojo> findAll();
+
+}

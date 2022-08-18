@@ -1,0 +1,5 @@
+package com.spedi123.travel.repository;
+
+public interface Repository {
+
+}

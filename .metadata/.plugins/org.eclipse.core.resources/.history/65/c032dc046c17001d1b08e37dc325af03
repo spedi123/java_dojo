@@ -1,0 +1,14 @@
+package com.spedi123.ninjagoldgame.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MainControllers {
+	
+	@GetMapping
+	public String index() {
+		ArrayList<String> activities = new ArrayList<String>();
+		return "index.jsp";
+	}
+}

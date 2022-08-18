@@ -1,0 +1,33 @@
+package com.spedi123.book.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@Controller
+public class BookController {
+	
+	@GetMapping("/books/{bookId}")
+	public String index(
+		@PathVariable("bookId") Long bookId
+		) {
+		return "index.jsp";
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

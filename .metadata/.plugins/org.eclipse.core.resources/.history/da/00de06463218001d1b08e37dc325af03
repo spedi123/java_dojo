@@ -1,0 +1,30 @@
+package com.spedi123.springmodels.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.spedi123.springmodels.models.Dog;
+import com.spedi123.springmodels.repos.DogRepository;
+
+@Service
+public class DogService {
+	private final DogRepository dogRepo;
+    
+    public DogService(DogRepository dogRepo) {
+        this.dogRepo = dogRepo;
+    }
+    
+    // ===== Create / Update =====
+    
+    // ===== Read =====
+
+    public List<Dog> getAll(){
+    	return dogRepo.findAll();
+    }
+    
+    public Dog getOne(Long id) {
+    	
+    }
+    
+}

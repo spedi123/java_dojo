@@ -1,0 +1,24 @@
+package com.spedi123.zookeeper;
+
+public class GorillaTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Gorilla KingKong = new Gorilla();
+		
+		KingKong.displayEnergy();
+		
+		KingKong.throwSomething();
+		KingKong.throwThings();
+		KingKong.throwThings();
+		System.out.println(KingKong.getEnergyLevel());
+		System.out.println("--------------------");
+		KingKong.eatBanana();
+		KingKong.eatBanana();
+		System.out.println(KingKong.getEnergyLevel());
+		System.out.println("--------------------");
+		KingKong.climb();
+		System.out.println(g1.getEnergyLevel());
+	}
+
+}

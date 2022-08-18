@@ -1,0 +1,59 @@
+package com.spedi123.loginandregistration.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.spedi123.loginandregistration.models.LoginUser;
+import com.spedi123.loginandregistration.models.User;
+import com.spedi123.loginandregistration.services.UserService;
+
+@Controller
+public class UserController {
+	
+	@Autowired
+	private UserService userServ;
+	
+	// ========== Display ==========
+
+//	@GetMapping("/")
+//	public String index(@ModelAttribute("newUser")User newUser, @ModelAttribute("newLogin")LoginUser newLogin) {
+//		return "index.jsp";
+//	}
+	
+	@GetMapping("/")
+	public String index(Model model) {
+		model.addAttribute("newUser", new User());
+		model.addAttribute("newLogin", new LoginUser());
+		
+		return "index.jsp";
+	}
+	
+	// ========== Action ==========
+	
+	@PostMapping("/register")
+	public String register() {
+		
+		return "redirect:/dashboard";
+	}
+	
+	@PostMapping("/login")
+	public String login() {
+		
+		return "redirect:/dashboard";
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+

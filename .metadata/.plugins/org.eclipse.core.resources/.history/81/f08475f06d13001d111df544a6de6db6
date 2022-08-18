@@ -1,0 +1,13 @@
+package com.spedi123.demoproject;
+
+public interface Living {
+	default void speak() {
+		System.out.println("I am speaking!!!");
+	}
+	
+	public abstract void rest();
+	
+	public abstract void eat();
+	
+	public abstract void attack();
+}

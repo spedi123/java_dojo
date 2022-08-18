@@ -1,0 +1,18 @@
+package com.spedi123.travel.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.spedi123.travel.services.ExpenseService;
+
+@Controller
+public class ExpenseController {
+	
+	@Autowired
+	private ExpenseService expenseServ;
+	
+	@GetMapping("/")
+	public String index() {
+		return "redirect:/expenses";
+	}
+}

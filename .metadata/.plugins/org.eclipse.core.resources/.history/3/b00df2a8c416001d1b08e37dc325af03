@@ -1,0 +1,10 @@
+package com.spedi123.counter.controllers;
+
+@Controller
+public class MainController {
+	
+	@RequestMapping("/")
+	public String index() {
+		
+	}
+}

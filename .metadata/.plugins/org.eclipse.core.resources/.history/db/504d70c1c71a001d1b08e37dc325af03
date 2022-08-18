@@ -1,0 +1,39 @@
+package com.spedi123.dojos.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.dojos.repositories.DojoRepository;
+
+@Service
+public class DojoService {
+
+	@Autowired
+	private DojoRepository dojoRepo;
+	
+	// ========== Create / Update ==========
+
+	
+	
+	// ========== Read ==========
+
+	
+	
+	// ========== Delete ==========
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

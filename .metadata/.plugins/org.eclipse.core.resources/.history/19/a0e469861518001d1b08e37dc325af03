@@ -1,0 +1,8 @@
+package com.spedi123.springmodels.models;
+
+
+@Enitity
+@Table(name="dogs")
+public class dog {
+
+}

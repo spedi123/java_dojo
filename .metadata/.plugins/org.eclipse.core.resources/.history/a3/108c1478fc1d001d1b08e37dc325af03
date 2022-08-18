@@ -1,0 +1,44 @@
+package com.spedi123.prodcutsandcategories.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.prodcutsandcategories.repositories.CategoryRepo;
+
+@Service
+public class CategoryService {
+
+	@Autowired
+	private CategoryRepo categoryRepo;
+	
+	// ========== Create / Update ==========
+	
+	
+
+	// ========== Read ==========
+	public List<Category> getAll() {
+		return categoryRepo.findAll();
+	}
+	
+
+	// ========== Delete ==========
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

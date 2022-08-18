@@ -1,0 +1,24 @@
+package com.spedi123.loginandregistration.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.loginandregistration.repositories.UserRepo;
+
+@Service
+public class UserService {
+	@Autowired
+	private UserRepo userRepo;
+	
+	// ========== Register and Login  ==========
+	
+	
+
+	// ========== Read ==========
+	
+	public User getOne(Long id) {
+		return userRepo.findById(id).orElse(null);
+	}
+	
+	
+}

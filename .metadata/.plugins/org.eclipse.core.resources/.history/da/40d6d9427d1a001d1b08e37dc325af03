@@ -1,0 +1,36 @@
+package com.spedi123.lookify.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.lookify.models.Song;
+import com.spedi123.lookify.repositories.SongRepository;
+
+@Service
+public class SongService {
+
+	@Autowired
+	private SongRepository songRepo;
+	
+	// ========== Create / Update ==========
+	
+	
+	
+
+	// ========== Read ==========
+	
+	public List<Song> getAll() {
+		return songRepo.findAll();
+	}
+	
+	
+
+	// ========== Delete ==========
+	
+	
+	
+	
+	
+}

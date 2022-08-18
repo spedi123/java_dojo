@@ -1,0 +1,41 @@
+package com.spedi123.languages.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.languages.models.Language;
+import com.spedi123.languages.repositories.LanguageRepository;
+
+@Service
+public class LanguageService {
+	
+	@Autowired
+	private LanguageRepository languageRepo;
+	
+	// ========== Create / Update ==========
+	
+	public Language save(Language language) {
+		return languageRepo.save(language);
+	}
+
+	// ========== Read ==========
+
+	public List<Language> getAll(Language language) {
+		
+	}
+	
+	// ========== Delete ==========
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+

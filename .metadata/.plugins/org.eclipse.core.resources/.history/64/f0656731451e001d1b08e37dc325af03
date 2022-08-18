@@ -1,0 +1,11 @@
+package com.spedi123.javaexam.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.spedi123.javaexam.models.Course;
+
+@Repository
+public interface CourseRepo extends CrudRepository<Course, Long> {
+	List<Course> findAll();
+}

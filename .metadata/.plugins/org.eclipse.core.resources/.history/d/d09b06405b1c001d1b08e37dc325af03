@@ -1,0 +1,5 @@
+package com.spedi123.bookclub.services;
+
+public class BookService {
+
+}

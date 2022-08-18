@@ -1,0 +1,65 @@
+package com.spedi123.dojos.models;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name="ninjas")
+public class Ninja {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
+    @Size(min = 2, max = 128, message = "First name must be at least 2 characters.")
+    private String firstName;
+    @NotNull
+    @Size(min = 2, max = 128, message = "Last name must be at least 2 characters.")
+    private String lastName;
+    @NotNull
+    @Min(0)
+    private int age;
+    @Column(updatable=false)
+    private Date createdAt;
+    private Date updatedAt;
+    
+    // =========== Relationships ==========
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="dojo_id")
+    private Dojo dojo;
+    
+	 // ========== Constructors ==========
+	
+    public Ninja() {}
+    
+     // ========== Data Creation Event ==========
+	
+	 @PrePersist
+	 protected void onCreate() {
+	 		this.createdAt = new Date();
+	 		this.updatedAt = new Date();
+	 	}
+	 	
+	 @PreUpdate
+	 protected void onUpdate() {
+	 		this.updatedAt = new Date();
+	 }
+	 
+	 // ========== Getters and Setters ==========
+    
+
+}

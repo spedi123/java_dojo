@@ -1,0 +1,16 @@
+package com.spedi123.bookclub.repositories;
+
+import java.util.ArrayList;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.spedi123.bookclub.models.Book;
+//import com.codingdojo.bookclub.models.User;
+
+@Repository
+public interface BookRepo extends CrudRepository<Book, Long>{
+	
+	ArrayList<Book> findAll();
+	public Book findByTitle(String title);
+}

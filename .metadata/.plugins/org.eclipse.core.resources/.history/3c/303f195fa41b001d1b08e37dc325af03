@@ -1,0 +1,38 @@
+package com.spedi123.loginandregistration.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
+import com.spedi123.loginandregistration.models.LoginUser;
+import com.spedi123.loginandregistration.models.User;
+import com.spedi123.loginandregistration.repositories.UserRepo;
+
+@Service
+public class UserService {
+	@Autowired
+	private UserRepo userRepo;
+	
+	// ========== Register and Login  ==========
+	
+	public User register (User newUser, BindingResult result) {
+		if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
+			result.rejectValue("email", "Unique", "Email is already in use.");
+		}
+		return null;
+	}
+	
+	public User login (LoginUser newLoginUser, BindingResult result) {
+		
+		return null;
+	}
+	
+
+	// ========== Read ==========
+	
+	public User getOne(Long id) {
+		return userRepo.findById(id).orElse(null);
+	}
+	
+	
+}

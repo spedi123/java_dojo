@@ -1,0 +1,15 @@
+package com.spedi123.bookclub.services;
+
+@Service
+public class BookService {
+	
+	@Autowired
+	private BookRepo bookRepo;
+	
+	
+	// ========== Create / Update ==========
+
+	// ========== Read ==========
+
+	// ========== Delete ==========
+}

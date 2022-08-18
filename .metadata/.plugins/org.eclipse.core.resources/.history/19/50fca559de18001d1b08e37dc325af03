@@ -1,0 +1,32 @@
+package com.spedi123.travel.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.travel.models.Expense;
+import com.spedi123.travel.repositories.ExpenseRepository;
+
+@Service
+public class ExpenseService {
+//	private final ExpenseRepository expenseRepo;
+//	
+//	public ExpenseService(ExpenseRepository expenseRepo) {
+//		this.expenseRepo = expenseRepo;
+//	}
+	@Autowired
+	private ExpenseRepository expenseRepo;
+	
+	// ===== Create / Update =====
+	
+	public Expense save(Expense expense) {
+		return expenseRepo.save(expense);
+	}
+	
+	// ===== Read ======
+	
+	public List<Expense> allExpense() {
+		return expenseRepo.findAll();
+	}
+}

@@ -1,0 +1,7 @@
+package com.spedi123.travel.model;
+
+public class Expense {
+	public String Expense;
+	public String Vendor;
+	public double Amount;
+}

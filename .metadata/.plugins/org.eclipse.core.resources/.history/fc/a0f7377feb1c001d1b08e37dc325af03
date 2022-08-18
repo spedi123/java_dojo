@@ -1,0 +1,14 @@
+package com.spedi123.beltexamdemo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.spedi123.beltexamdemo.services.RobotService;
+
+@Controller
+public class RobotController {
+	
+	@Autowired
+	private RobotService robotServ;
+	
+}

@@ -1,0 +1,24 @@
+package com.spedi123.springmodels.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.spedi123.springmodels.services.DogService;
+
+@Controller
+public class DogController {
+// line 11~14 are same as line 17
+//	private final DogService dogServ;
+//	public DogController(DogService ds) {
+//		this.dogServ = ds;
+//	}
+	
+	@Autowired
+	private DogService dogserv;
+	
+	@GetMapping("/")
+	public String index() {
+		return "index.jsp";
+	}
+}

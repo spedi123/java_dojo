@@ -1,0 +1,21 @@
+package com.spedi123.springmodels.controllers;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.spedi123.springmodels.services.DogService;
+
+@RestController
+public class DogApi {
+	
+	private final DogService dogServ;
+	
+	public DogApi(DogService ds) {
+		this.dogServ = ds;
+	}
+	
+	@GetMapping("/api/dogs")
+	public List<Dog> getAllDogs() {
+		return dogServ.getAll()
+	}
+}

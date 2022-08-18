@@ -1,0 +1,15 @@
+package com.spedi123.demoproject;
+
+public class Human {
+	protected int strength;
+	protected int dexterity;
+	protected int intelligence;
+	protected int health;
+	
+	public Human() {
+		this.strength = 10;
+		this.dexterity = 10;
+		this.intelligence = 10;
+		this.health = 10;
+	}
+}

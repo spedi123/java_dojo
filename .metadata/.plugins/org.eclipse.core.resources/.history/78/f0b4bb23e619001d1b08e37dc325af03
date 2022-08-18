@@ -1,0 +1,58 @@
+package com.spedi123.languages.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.languages.models.Language;
+import com.spedi123.languages.repositories.LanguageRepository;
+
+@Service
+public class LanguageService {
+	
+	@Autowired
+	private LanguageRepository languageRepo;
+	
+	// ========== Create / Update ==========
+	
+	public Language save(Language language) {
+		return languageRepo.save(languages);
+	}
+
+	// ========== Read ==========
+
+	public List<Language> getAll() {
+		return languageRepo.findAll();
+	}
+	
+	public Language getOne(Long id) {
+		Optional<Language> optLanguage = languageRepo.findById(id);
+		
+		if (optLanguage.isPresent()) {
+			return optLanguage.get();
+		} else {
+			return null;
+		}
+		
+	}
+	
+	// ========== Delete ==========
+	
+	public void delete(Long id) {
+		languageRepo.deleteById(id);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

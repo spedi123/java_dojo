@@ -1,0 +1,22 @@
+package com.spedi123.prodcutsandcategories.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.spedi123.prodcutsandcategories.services.CategoryService;
+import com.spedi123.prodcutsandcategories.services.ProductService;
+
+@Controller
+public class MainController {
+	
+	@Autowired
+	private CategoryService categoryServ;
+	
+	@Autowired
+	private ProductService productServ;
+	
+	// ========== Display ==========
+
+	// ========== Action ==========
+	
+}

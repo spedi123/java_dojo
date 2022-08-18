@@ -1,0 +1,9 @@
+package com.spedi123.demoproject;
+
+public class Orc {
+
+	public Orc() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,44 @@
+package com.spedi123.languages.models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "languages")
+public class Language {
+	// ========== Primary Key ==========
+	@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Long id;
+
+	// ========== Member Variables ==========
+
+	@NotNull
+	@Size(min = 2, max = 20)
+	private String name;
+	
+	@NotNull
+    @Size(min = 2, max = 20)
+    private String creator;
+	
+	@NotNull
+	@Min(0)
+    private int currentVersion;
+	
+	// ========== Constructors ==========
+	public Language () {}
+
+	public Language(@NotNull @Size(min = 2, max = 20) String name, @NotNull @Size(min = 2, max = 20) String creator,
+			@NotNull @Min(0) int currentVersion) {
+		this.name = name;
+		this.creator = creator;
+		this.currentVersion = currentVersion;
+	};
+	
+}

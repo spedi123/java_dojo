@@ -1,0 +1,9 @@
+package com.spedi123.book.controllers;
+
+public class BookApi {
+	private final BookService bookService;
+
+	public BookApi(BookService bookService) {
+		this.bookService = bookService;
+	}
+}

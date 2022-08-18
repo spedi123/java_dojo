@@ -1,0 +1,16 @@
+package com.spedi123.zookeeper;
+
+public class Bat {
+	
+	public void fly() {
+		
+	}
+	
+	public void eatHumans() {
+		
+	}
+	
+	public void attackTown() {
+		
+	}
+}

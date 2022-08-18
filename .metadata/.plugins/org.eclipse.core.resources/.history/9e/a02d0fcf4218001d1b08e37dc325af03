@@ -1,0 +1,11 @@
+package com.spedi123.springmodels.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DogApi {
+	@GetMapping("/api/dogs")
+	public String getAllDogs() {
+		
+	}
+}

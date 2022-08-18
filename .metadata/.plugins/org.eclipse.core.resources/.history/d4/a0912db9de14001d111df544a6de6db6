@@ -1,0 +1,6 @@
+package com.spedi123.springdemo.controllers;
+
+@RestController
+public class HomeController {
+
+}

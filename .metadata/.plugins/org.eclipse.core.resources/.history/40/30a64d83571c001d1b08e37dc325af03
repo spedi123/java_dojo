@@ -1,0 +1,5 @@
+package com.spedi123.bookclub.models;
+
+public class User {
+
+}
