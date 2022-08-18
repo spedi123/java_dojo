@@ -6,7 +6,6 @@ INDEX VERSION 1.131+/Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.p
 2116246466.index
 1083779580.index
 1038161047.index
-3996755565.index
 2028586447.index
 1732123998.index
 3846440627.index
