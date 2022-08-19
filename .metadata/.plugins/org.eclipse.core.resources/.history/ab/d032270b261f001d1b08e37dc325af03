@@ -1,0 +1,19 @@
+package com.spedi123.overflow.repositories;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.spedi123.overflow.models.Question;
+import com.spedi123.overflow.models.Tag;
+
+@Repository
+public interface QuestionRepo extends CrudRepository<Question, Long> {
+	
+	List<Question> findAll();
+	Optional<Question> findById(Long id);
+	List<Question> findAllByTags(Tag tag);
+	List<Question> findByTagsNotConains(Tag tag);
+}

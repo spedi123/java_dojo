@@ -1,0 +1,9 @@
+package com.spedi123.overflow.service;
+
+public class TagService {
+	// ========== Create / Update ==========
+
+	// ========== Read ==========
+
+	// ========== Delete ==========
+}

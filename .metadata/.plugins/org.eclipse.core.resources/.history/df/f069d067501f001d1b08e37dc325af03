@@ -1,0 +1,85 @@
+package com.spedi123.projectmanager.models;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
+@Table(name="projects")
+public class Project {
+
+	// ========== Primary Key ==========
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	// ========== Member Variables ==========
+
+	@NotNull
+	@Size(min = 2, max = 128, message = "Title must be at least 2 characters.")
+	private String title;
+	
+	@NotNull
+	@Size(min = 2, max = 255, message = "Description must be at least 2 characters.")
+	private String description;
+	    
+	@Future
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date dueDate;
+
+
+	// ========== Data Creation Tracker ==========
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+
+	// ========== Constructors ==========
+
+	public Project() {}
+
+	// =========== Relationships ==========
+
+	@ManyToOne
+	@JoinColumn(name="project_id")
+    private User leader;
+	
+	@ManyToMany
+	@JoinTable(
+			name = "users_projects",
+			joinColumns = @JoinColumn(name = "project_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
+	)
+    private List<User> users;
+
+	// ========== Data Creation Event ==========
+
+	@PrePersist
+	protected void onCreate() {
+			this.createdAt = new Date();
+			this.updatedAt = new Date();
+		}
+		
+	@PreUpdate
+	protected void onUpdate() {
+			this.updatedAt = new Date();
+	}
+	// ========== Getters and Setters ==========
+}

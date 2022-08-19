@@ -1,0 +1,11 @@
+package com.spedi123.projectmanager.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.spedi123.projectmanager.models.Project;
+
+@Repository
+public interface ProjectRepo extends CrudRepository<Project, Long> {
+	List<Project> findAll();
+}

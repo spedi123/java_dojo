@@ -1,0 +1,11 @@
+package com.spedi123.overflow.repositories;
+
+import java.util.List;
+
+import com.spedi123.overflow.models.Answer;
+import com.spedi123.overflow.models.Question;
+
+public interface AnswerRepo {
+	List<Answer> findAll();
+	List<Answer> findAllByQuestionIdIs(Question question);
+}

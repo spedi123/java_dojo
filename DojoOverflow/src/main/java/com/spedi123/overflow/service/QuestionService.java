@@ -1,0 +1,71 @@
+package com.spedi123.overflow.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.overflow.models.Question;
+import com.spedi123.overflow.models.Tag;
+import com.spedi123.overflow.repositories.QuestionRepo;
+
+@Service
+public class QuestionService {
+	
+	@Autowired
+	private QuestionRepo questionRepo;
+	
+	// ========== Create / Update ==========
+	
+	public Question create(Question question) {
+		return questionRepo.save(question);
+	}
+	
+	public Question update(Question question) {
+		return questionRepo.save(question);
+	}
+		
+	// ========== Read ==========
+	
+	public List<Question> getAll() {
+		return questionRepo.findAll();
+	}
+
+	public Question getOne(Long id) {
+		return questionRepo.findById(id).orElse(null);
+	}
+	
+	public List<Question> getAssignedTags(Tag tag) {
+		return questionRepo.findAllByTags(tag);
+	}
+ 	
+	public List<Question> getUnassinedTags(Tag tag) {
+		return questionRepo.findByTagsNotContains(tag);
+	} 
+	
+	
+	
+	// ========== Delete ==========
+	
+	public void delete(Long id) {
+		questionRepo.deleteById(id);
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+package com.spedi123.overflow.models;
+
+@Entity
+@Table(name="questions")
+public class Question {
+
+}

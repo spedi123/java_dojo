@@ -1,0 +1,24 @@
+package com.spedi123.overflow.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.overflow.repositories.QuestionRepo;
+
+@Service
+public class QuestionService {
+	
+	@Autowired
+	private QuestionRepo questionRepo;
+	
+	// ========== Create / Update ==========
+
+		
+	// ========== Read ==========
+	
+	public List<Question> getAll() {
+		return questionRepo.findAll();
+	}
+
+	// ========== Delete ==========
+}

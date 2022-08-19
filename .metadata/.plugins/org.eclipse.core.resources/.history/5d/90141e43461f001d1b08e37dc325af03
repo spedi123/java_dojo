@@ -1,0 +1,5 @@
+package com.spedi123.projectmanager.models;
+
+public class Project {
+
+}

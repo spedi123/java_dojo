@@ -1,0 +1,13 @@
+package com.spedi123.overflow.service;
+
+@Service
+public class TagService {
+	
+	@Autowired
+	private TagRepo tagRepo;
+	// ========== Create / Update ==========
+
+	// ========== Read ==========
+
+	// ========== Delete ==========
+}
