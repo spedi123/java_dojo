@@ -1,0 +1,14 @@
+package com.spedi123.javaexam2.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.spedi123.javaexam2.models.Rating;
+
+@Repository
+public interface RatingRepo extends CrudRepository<Rating, Long> {
+	List<Rating> findAll();
+	List<Rating> findShowIdIs(Long showId);
+}

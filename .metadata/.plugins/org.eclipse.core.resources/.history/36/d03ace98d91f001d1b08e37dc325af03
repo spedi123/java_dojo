@@ -1,0 +1,48 @@
+package com.spedi123.javaexam2.controllers;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.spedi123.javaexam2.models.Show;
+import com.spedi123.javaexam2.models.User;
+import com.spedi123.javaexam2.services.ShowService;
+import com.spedi123.javaexam2.services.UserService;
+
+@Controller
+public class ShowController {
+
+	@Autowired
+	private ShowService showServ;
+
+	@Autowired
+	private UserService userServ;
+	
+	// ========== Display ==========
+	
+	@GetMapping("/shows")
+	public String dashboard(HttpSession session, Model model) {
+		if(session.getAttribute("uuid")==null) {
+			return "redirect:/";
+		}
+		
+		User user = userServ.getOne((Long)session.getAttribute("uuid"));
+		List<Show> allShows = showServ.getAll();
+		
+		model.addAttribute("loggedInUser", user);
+		model.addAttribute("allShows", allShows);
+		
+		return "list_show.jsp";
+	}
+
+	// ========== Action ==========
+	
+	
+	
+	
+}

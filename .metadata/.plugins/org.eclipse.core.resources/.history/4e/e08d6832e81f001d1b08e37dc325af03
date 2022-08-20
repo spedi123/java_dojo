@@ -1,0 +1,64 @@
+package com.spedi123.javaexam2.models;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="ratings")
+public class Rating {
+	// ========== Primary Key ==========
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	// ========== Member Variables ==========
+
+	@NotNull
+	@Min(value=1, message="Rating 1 to 5 only")
+	@Max(value=5, message="Rating 1 to 5 only")
+	private String rating;
+	    
+	@NotNull
+	@Min(0)
+	private int age;
+
+
+	// ========== Data Creation Tracker ==========
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+
+	// ========== Constructors ==========
+	
+	public Rating () {
+
+	// =========== Relationships ==========
+
+
+
+	// ========== Data Creation Event ==========
+
+	@PrePersist
+	protected void onCreate() {
+			this.createdAt = new Date();
+			this.updatedAt = new Date();
+		}
+		
+	@PreUpdate
+	protected void onUpdate() {
+			this.updatedAt = new Date();
+	}
+	// ========== Getters and Setters ==========
+}

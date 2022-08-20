@@ -1,0 +1,12 @@
+package com.spedi123.product.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProductService {
+	// ========== Create / Update ==========
+
+	// ========== Read ==========
+
+	// ========== Delete ==========
+}

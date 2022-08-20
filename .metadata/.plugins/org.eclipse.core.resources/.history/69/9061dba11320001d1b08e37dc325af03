@@ -1,0 +1,8 @@
+package com.spedi123.javaexam2.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface ShowRepo extends CrudRepository<Show, ID> {
+	List<Show> findAll();
+
+}

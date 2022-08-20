@@ -1,0 +1,66 @@
+package com.spedi123.product.controllers;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.spedi123.product.models.Category;
+import com.spedi123.product.models.Product;
+import com.spedi123.product.services.CategoryService;
+import com.spedi123.product.services.ProductService;
+
+@Controller
+public class MainController {
+	
+	@Autowired
+	private ProductService productServ;
+	
+	@Autowired
+	private CategoryService categoryServ;
+	
+	
+	// ========== Display ==========
+
+	@GetMapping("/")
+	public String index(Model model) {
+		List<Product> products = productServ.getAll();
+		List<Category> categories = categoryServ.getAll();
+		
+		model.addAttribute("products", products);
+		model.addAttribute("categories", categories);
+		
+		return "index.jsp";
+	}
+	
+	@GetMapping("/products/new")
+	public String newProduct(@ModelAttribute("product") Product product) {
+		return "new_product.jsp";
+	}
+	
+	// ========== Action ==========
+	
+	@PostMapping("/products/new")
+	public String addNewProduct(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			return "product_new.jsp";
+		}
+		
+		productServ.create(product);
+		return "redirect:/";
+		
+	}
+}
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+package com.spedi123.javaexam2.services;
+
+@Service
+public class RatingService {
+	
+	@Autowired
+	private RatingRepo ratingRepo;
+
+}

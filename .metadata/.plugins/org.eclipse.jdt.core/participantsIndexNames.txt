@@ -1,6 +1,8 @@
 INDEX VERSION 1.131
 /Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3357930863.index
 /Counter/src/main/java
+/Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1223053430.index
+/JavaExam2/src/main/java
 /Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1993319097.index
 /StudentRoster/src/main/java
 /Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3093270103.index
@@ -17,6 +19,8 @@ INDEX VERSION 1.131
 /NinjaGoldgame/src/main/java
 /Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2370691950.index
 /ProjectManager/src/main/java
+/Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1842369069.index
+/product/src/main/java
 /Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4015790153.index
 /FruityLoops/src/main/java
 /Users/seonggyuan/Desktop/coding_dojo/java_dojo/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2351295657.index

@@ -1,0 +1,9 @@
+package com.spedi123.product.services;
+
+public class CategoryService {
+	// ========== Create / Update ==========
+
+	// ========== Read ==========
+
+	// ========== Delete ==========
+}

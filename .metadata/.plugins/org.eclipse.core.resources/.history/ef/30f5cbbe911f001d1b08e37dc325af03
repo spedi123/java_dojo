@@ -1,0 +1,29 @@
+package com.spedi123.product.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.product.models.Product;
+import com.spedi123.product.repositories.ProductRepo;
+
+@Service
+public class ProductService {
+	
+	@Autowired
+	private ProductRepo productRepo;
+	
+	// ========== Create / Update ==========
+	
+	public Product create(Product product) {
+		return productRepo.save(product);
+	}
+	
+	// ========== Read ==========
+
+	public List<Product> getAll() {
+		return productRepo.findAll();
+	}
+	
+	
+	// ========== Delete ==========
+}

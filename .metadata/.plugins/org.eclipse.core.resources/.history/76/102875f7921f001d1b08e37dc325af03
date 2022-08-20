@@ -1,0 +1,6 @@
+package com.spedi123.product.controllers;
+
+@Controller
+public class MainController {
+
+}

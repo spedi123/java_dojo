@@ -1,0 +1,6 @@
+package com.spedi123.product.services;
+
+@Service
+public class ProductService {
+
+}

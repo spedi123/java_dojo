@@ -1,0 +1,22 @@
+package com.spedi123.product.controllers;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MainController {
+	
+	@Autowired
+	private ProductService productServ;
+	
+	@Autowired
+	private CategoryService categoryServ;
+	
+	
+	
+}
+
+
+
+
+
+

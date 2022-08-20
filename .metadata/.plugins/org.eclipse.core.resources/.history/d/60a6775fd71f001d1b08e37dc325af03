@@ -1,0 +1,6 @@
+package com.spedi123.javaexam2.repositories;
+
+@Repository
+public interface ShowRepo  extends CrudRepository<Robot, Long> {
+	List<Show> findAll();
+}

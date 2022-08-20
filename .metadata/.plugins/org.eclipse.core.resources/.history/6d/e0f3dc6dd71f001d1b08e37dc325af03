@@ -1,0 +1,14 @@
+package com.spedi123.javaexam2.repositories;
+
+import java.awt.Robot;
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.spedi123.javaexam2.models.Show;
+
+@Repository
+public interface ShowRepo  extends CrudRepository<Robot, Long> {
+	List<Show> findAll();
+}

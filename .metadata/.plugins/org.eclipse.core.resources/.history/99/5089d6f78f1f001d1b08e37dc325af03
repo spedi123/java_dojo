@@ -1,0 +1,10 @@
+package com.spedi123.product.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="categories")
+public class Category {
+
+}

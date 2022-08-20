@@ -1,0 +1,6 @@
+package com.spedi123.javaexam2.repositories;
+
+@Repository
+public interface RatingRepo extends CrudRepository<Rating, Long> {
+	List<Rating> findAll();
+}

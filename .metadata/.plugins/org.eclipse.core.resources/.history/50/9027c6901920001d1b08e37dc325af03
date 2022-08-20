@@ -1,0 +1,41 @@
+package com.spedi123.javaexam2.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.javaexam2.models.Rating;
+import com.spedi123.javaexam2.repositories.RatingRepo;
+
+@Service
+public class RatingService {
+	@Autowired
+	private RatingRepo ratingRepo;
+	
+	
+	// ========== Create / Update ==========
+	
+	public Rating save(Rating rating) {
+		return ratingRepo.save(rating);
+	}
+	// ========== Read ==========
+	
+	public List<Rating> getAll() {
+		return ratingRepo.findAll();
+	}
+	
+	public Rating getOne(Long id) {
+		return ratingRepo.findById(id).orElse(null);
+	}
+	
+	public List<Rating> getAssignedRatings(Show show) {
+		return ratingRepo.findAllByShow(show);
+	}
+
+	// ========== Delete ==========
+	
+	public void delete(Long id) {
+		ratingRepo.deleteById(id);
+	}
+}

@@ -1,0 +1,19 @@
+package com.spedi123.javaexam2.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spedi123.javaexam2.models.Rating;
+import com.spedi123.javaexam2.repositories.RatingRepo;
+
+@Service
+public class RatingService {
+	
+	@Autowired
+	private RatingRepo ratingRepo;
+	
+	public Rating create(Rating rating) {
+		return ratingRepo.save(rating);
+	}
+
+}

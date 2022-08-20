@@ -1,0 +1,14 @@
+package com.spedi123.javaexam2.controllers;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ShowController {
+
+	@Autowired
+	private ShowService showServ;
+
+	@Autowired
+	private UserService userServ;
+	
+}

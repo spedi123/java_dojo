@@ -1,0 +1,8 @@
+package com.spedi123.javaexam2.models;
+
+
+@Entity
+@Table(name="shows")
+public class Show {
+
+}
