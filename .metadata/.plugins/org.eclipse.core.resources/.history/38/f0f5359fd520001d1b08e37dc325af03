@@ -1,0 +1,17 @@
+package com.spedi123.testjava.controllers;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dhollinger.javaExam.models.Name;
+import com.dhollinger.javaExam.models.User;
+import com.dhollinger.javaExam.services.NameServ;
+import com.dhollinger.javaExam.services.UserServ;
+public class UserController {
+
+}
