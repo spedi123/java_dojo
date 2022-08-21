@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.time.format.FormatStyle"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.spedi123.book.models.Book"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="javax.persistence.Transient"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="com.spedi123.loginandregistration.models.User"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.spedi123.bookclub.models.Book"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.criteria.Root"/>
+    <fullyQualifiedTypeName name="com.spedi123.beltexamdemo.models.User"/>
+    <fullyQualifiedTypeName name="com.spedi123.beltexamdemo.models.Robot"/>
+    <fullyQualifiedTypeName name="com.spedi123.bookclub.models.User"/>
+    <fullyQualifiedTypeName name="com.spedi123.prodcutsandcategories.models.Category"/>
+    <fullyQualifiedTypeName name="com.spedi123.javaexam.models.User"/>
+    <fullyQualifiedTypeName name="com.spedi123.overflow.models.Question"/>
+    <fullyQualifiedTypeName name="com.spedi123.overflow.models.Tag"/>
+    <fullyQualifiedTypeName name="com.spedi123.projectmanager.models.User"/>
+    <fullyQualifiedTypeName name="com.spedi123.projectmanager.models.Task"/>
+    <fullyQualifiedTypeName name="com.spedi123.product.repositories.ProductRepo"/>
+    <fullyQualifiedTypeName name="com.spedi123.product.models.Category"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="com.spedi123.javaexam2.models.User"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.spedi123.testjava.models.User"/>
+    <fullyQualifiedTypeName name="com.spedi123.testjava.models.Name"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

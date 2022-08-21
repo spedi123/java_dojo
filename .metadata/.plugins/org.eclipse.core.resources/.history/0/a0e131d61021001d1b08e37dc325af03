@@ -1,0 +1,98 @@
+package com.spedi123.testjava.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
+import com.spedi123.testjava.models.LoginUser;
+import com.spedi123.testjava.models.Name;
+import com.spedi123.testjava.models.User;
+import com.spedi123.testjava.repositories.UserRepo;
+
+@Service
+public class UserServ {
+	@Autowired
+	private UserRepo userRepo;
+	
+	// ========== Register and Login  ==========
+	
+	public User register(User newUser, BindingResult result) {
+
+		if(!newUser.getConfirmPassword().equals(newUser.getPassword())) {
+			result.rejectValue("password", "matches", "Passwords must match!");
+		}
+		
+		if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
+			result.rejectValue("email", "unquie", "Email already in use!");
+		}
+		if(result.hasErrors()) {
+			return null;
+		} 
+			
+		String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+		newUser.setPassword(hashed);
+		return userRepo.save(newUser);
+	}
+	
+	public User login(LoginUser loginUser, BindingResult result) {
+		if(result.hasErrors()) {
+			return null;
+		}
+		Optional<User> opUser = userRepo.findByEmail(loginUser.getEmail());
+		if(!opUser.isPresent()) {
+			result.rejectValue("email", "unique", "Invalid Credentials");
+			return null;
+		}
+		User user = opUser.get();
+		if(!BCrypt.checkpw(loginUser.getPassword(), user.getPassword())) {
+			result.rejectValue("password", "matches", "Invalid Credentials");
+			return null;
+		}
+		if(result.hasErrors()) {
+			return null;
+		} 
+			
+		return user;
+		}
+
+	// ========== Create / Update ==========
+	
+	public User saveOne(User user) {
+		return userRepo.save(user);
+	}
+	
+	
+	
+	// ========== Read ==========
+	
+	public List<User> getAll(){
+		return userRepo.findAll();
+	}
+	
+	public User getOne(Long id) {
+		return userRepo.findById(id).orElse(null);
+	}
+	
+	public User getOneByEmail(String email) {
+		
+		return userRepo.findByEmail(email).orElse(null);
+	}
+	
+	public List <User> getLikedNames(Name name){
+		return userRepo.findAllByName(name);
+	}
+	public List <User> getNotLikedNames(Name name){
+		return userRepo.findByNameNotContains(name);
+	}
+	
+	// ========== Delete ==========
+
+	public void deleteOne(Long id) {
+		userRepo.deleteById(id);
+	}
+	
+}

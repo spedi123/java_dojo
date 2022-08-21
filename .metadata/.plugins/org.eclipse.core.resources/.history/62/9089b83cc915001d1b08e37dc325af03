@@ -1,7 +1,0 @@
-let pageTitle = document.title.toLocaleLowerCase();
-
-if (pageTitle == "Date") {
-	alert("This is the date template");
-} else if (pageTitle == "Time") {
-	alert("This is the time template");
-}

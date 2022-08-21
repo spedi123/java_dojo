@@ -1,8 +1,0 @@
-package com.spedi123.studentroaster.models;
-
-
-@Entity
-@Table(name="students")
-public class Student {
-
-}

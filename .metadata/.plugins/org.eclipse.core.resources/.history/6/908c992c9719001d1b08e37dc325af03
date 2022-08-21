@@ -1,9 +1,0 @@
-package com.spedi123.springmodels.services;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public class ToyService {
-	@Atuowired
-	private ToyRepo toyRepo;
-}

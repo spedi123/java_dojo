@@ -1,9 +1,0 @@
-@charset "UTF-8";
-
-body {
-	background-color: blue;
-}
-h1 {
-	color: rgb(255,182,193);
-	text-align: center;
-}

@@ -1,6 +1,0 @@
-package com.spedi123.springmodels.controllers;
-
-@Controller
-public class DogController {
-
-}

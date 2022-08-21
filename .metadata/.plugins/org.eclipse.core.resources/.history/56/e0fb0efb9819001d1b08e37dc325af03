@@ -1,8 +1,0 @@
-package com.spedi123.springmodels.repos;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface ToyRepo extends CrudRepository<Toy, Long> {
-	List<Toy> findAll();
-}

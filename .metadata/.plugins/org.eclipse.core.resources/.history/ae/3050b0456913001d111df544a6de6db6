@@ -1,9 +1,0 @@
-package com.spedi123.demoproject;
-
-public class Rogue {
-
-	public Rogue() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

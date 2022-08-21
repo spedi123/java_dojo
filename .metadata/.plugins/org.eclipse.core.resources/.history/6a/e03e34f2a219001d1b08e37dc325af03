@@ -1,9 +1,0 @@
-package com.spedi123.springmodels.controllers;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-@RequestMapping("/toys")
-public class ToyController {
-
-}

@@ -1,6 +1,0 @@
-package com.spedi123.springmodels.services;
-
-@Service
-public class DogService {
-
-}

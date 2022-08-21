@@ -1,6 +1,0 @@
-package com.spedi123.travel.repository;
-
-@Repository
-public interface Repository extends CrudRepository<Expnese, Long> {
-
-}

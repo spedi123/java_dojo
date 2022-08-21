@@ -1,0 +1,159 @@
+package com.spedi123.testjava.controllers;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.spedi123.testjava.models.Name;
+import com.spedi123.testjava.models.User;
+import com.spedi123.testjava.services.NameServ;
+import com.spedi123.testjava.services.UserServ;
+
+@Controller
+public class NameController {
+	
+	@Autowired
+	private UserServ userServ;
+	
+	@Autowired
+	private NameServ nameServ;
+	
+	// ========== Display ==========
+	
+	@RequestMapping("/dashboard")
+	public String renderHome(Model model, HttpSession session) {
+		if(session.getAttribute("uuid") == null) {
+			return "redirect:/";
+		}
+		User user = userServ.getOne((Long) session.getAttribute("uuid"));
+		List<Name> allNames = nameServ.getAll();
+		
+		model.addAttribute("loggedInUser", user);
+		model.addAttribute("allNames", allNames);
+		return "names.jsp";
+	}
+	
+	@GetMapping("/names/new")
+	public String renderForm(@ModelAttribute("oneName") Name name, HttpSession session) {
+		if(session.getAttribute("uuid") == null) {
+			return "redirect:/";
+		}
+		return "new_name.jsp";
+	}
+	
+	@GetMapping("/names/{id}")
+	public String renderViewName(@PathVariable("id") Long id, Model model, HttpSession session ) {
+		if(session.getAttribute("uuid") == null) {
+			return "redirect:/";
+		}
+		model.addAttribute("user", userServ.getOne((Long) session.getAttribute("uuid")));
+		model.addAttribute("oneName", nameServ.getOne(id));
+		return "one_name.jsp";
+	}
+	
+	@GetMapping("/names/{id}/edit")
+	public String renderEditForm(@PathVariable("id") Long id, Model model, HttpSession session) {
+		if(session.getAttribute("uuid") == null) {
+			return "redirect:/";
+		}
+		if(nameServ.getOne(id).getUser() != userServ.getOne((Long) session.getAttribute("uuid"))) {
+			return "redirect:/dashboard";
+		};
+		model.addAttribute("editName", nameServ.getOne(id));
+		return "edit_name.jsp";
+	}
+	
+	// ========== Action ==========
+	
+	@PostMapping("/names/new")
+	public String saveOne(@Valid @ModelAttribute("oneName") Name name, BindingResult result, HttpSession session) {
+		name.setUser(userServ.getOne((Long) session.getAttribute("uuid")));
+		nameServ.checkName(name, result);
+		
+		if(session.getAttribute("uuid") == null) {
+			return "redirect:/";
+		}
+		
+		if(result.hasErrors()) {
+			return "new_name.jsp";
+		}
+		
+		return "redirect:/dashboard";
+	}
+
+	@PutMapping("/names/{id}/update")
+	public String updateOne(@Valid @ModelAttribute("editName")Name name, BindingResult result, HttpSession session, @PathVariable("id") Long id) {
+		if(session.getAttribute("uuid") == null) {
+			return "redirect:/";
+		}
+//		if(session.getAttribute("uuid") != nameServ.getOne(id).getUser().getId()) {
+//			return "redirect:/dashboard";
+//		}
+//		
+		if(result.hasErrors()) {
+			return "edit_name.jsp";
+		} else {
+			name.setUser(userServ.getOne((Long) session.getAttribute("uuid")));
+			nameServ.saveOne(name);
+			
+			return "redirect:/names/" + name.getId();
+		}
+		
+	}
+	
+	@PutMapping("/names/like/{id}")
+	public String likeName(@PathVariable("id") Long idName, Model model, HttpSession session) {
+		User user = userServ.getOne((Long) session.getAttribute("uuid"));
+		Name name = nameServ.getOne(idName);
+		name.getUserLike().add(user);
+		user.getNames().add(name);
+		nameServ.saveOne(name);
+		userServ.saveOne(user);
+		
+		
+		return "redirect:/home";
+	}
+	
+	@PutMapping("/names/dislike/{id}")
+	public String unlikeName(@PathVariable("id") Long idName, Model model, HttpSession session) {
+		User user = userServ.getOne((Long) session.getAttribute("uuid"));
+		Name name = nameServ.getOne(idName);
+		name.getUserLike().remove(user);
+		user.getNames().remove(name);
+		nameServ.saveOne(name);
+		userServ.saveOne(user);
+		return "redirect:/home";
+	}
+	
+	
+	@PutMapping("/names/{id}/like")
+	public String upvoteNameButOnViewPage(@PathVariable("id") Long idName, Model model, HttpSession session) {
+		User user = userServ.getOne((Long) session.getAttribute("uuid"));
+		Name name = nameServ.getOne(idName);
+		name.getUserLike().add(user);
+		user.getNames().add(name);
+		nameServ.saveOne(name);
+		userServ.saveOne(user);		
+		
+		return "redirect:/names/" + idName;
+	}
+
+	@DeleteMapping("/names/{id}/delete")
+	public String destroy(@PathVariable("id") Long id) {
+		nameServ.deleteOne(id);
+		return "redirect:/home";
+	}
+}

@@ -1,9 +1,0 @@
-package com.spedi123.studentroaster.repositories;
-
-
-@Repository
-public interface DormRepository extends CrudRepository<Dorm, Long> {
-	
-	List<Dorm> findAll();
-
-}

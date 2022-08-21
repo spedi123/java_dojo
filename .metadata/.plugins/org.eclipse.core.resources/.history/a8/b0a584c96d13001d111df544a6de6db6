@@ -1,9 +1,0 @@
-package com.spedi123.demoproject;
-
-public class Race {
-
-	public Race() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

@@ -1,8 +1,0 @@
-package com.spedi123.springmodels.models;
-
-
-@Entity
-@Table(name="toys")
-public class Toy {
-
-}

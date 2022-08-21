@@ -1,9 +1,0 @@
-package com.spedi123.demoproject;
-
-public class Rouge {
-
-	public Rouge() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

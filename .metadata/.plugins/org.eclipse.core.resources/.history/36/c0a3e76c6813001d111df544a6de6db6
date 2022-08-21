@@ -1,9 +1,0 @@
-package com.spedi123.demoproject;
-
-public class Human {
-	protected int strength = 10;
-	protected int drexterity = 10;
-	protected int intelligence = 10;
-	protected int health = 10;
-	
-}
