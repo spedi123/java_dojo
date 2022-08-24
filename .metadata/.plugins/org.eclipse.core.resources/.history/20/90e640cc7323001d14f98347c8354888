@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- for rendering errors on PUT routes -->
+<%@ page isErrorPage="true" %>
+<!-- c:out ; c:forEach etc. --> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Formatting (dates) --> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- Functions --> 
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<!-- form:form -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- for Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="/css/style.css"/>
+<!-- For any Bootstrap that uses JS or jQuery-->
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<title>New</title>
+</head>
+<body>
+	<h1>Edit <c:out value="${name.name }"/>!</h1>
+	<form:form action="/names/${name.id}/update" method="post" modelAttribute="name">
+	<input type="hidden" name="_method" value="put" />
+		<p>
+			<form:label path="name">Name:</form:label>
+			<form:errors path="name"/>
+			<form:input path="name" disabled="disabled"/>
+		</p>
+		<p>
+			<form:label path="gender">Typical Gender:</form:label>
+			<form:errors path="gender" />
+			<form:select path="gender" > 
+				<form:option selected="true" value="${name.gender }"></form:option>
+				<form:option value="neutral">Neutral</form:option>
+				<form:option  value="male">Male</form:option>
+				<form:option  value="female">Female</form:option>
+			</form:select>
+		</p>
+		<p>
+			<form:label path="origin">Origin:</form:label>
+			<form:errors path="origin" />
+			<form:input path="origin" />
+		</p>
+		<p>
+			<form:label path="meaning">Meaning(s):</form:label>
+			<form:errors path="meaning" />
+			<form:input path="meaning"/>
+		</p>
+		<div>
+			<a href="/names/${name.id }" class="btn btn-danger">Cancel</a>
+			<input type="submit" value="Submit" class="btn btn-primary" />
+		</div>
+	</form:form>
+</body>
+</html>
