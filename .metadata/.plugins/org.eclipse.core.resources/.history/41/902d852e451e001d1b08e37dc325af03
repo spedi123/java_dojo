@@ -1,5 +1,0 @@
-package com.spedi123.javaexam.repositories;
-
-public interface CourseRepo {
-
-}

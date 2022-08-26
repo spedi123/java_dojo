@@ -34,4 +34,8 @@
     <fullyQualifiedTypeName name="com.spedi123.testjava.models.User"/>
     <fullyQualifiedTypeName name="com.spedi123.testjava.models.Name"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.spedi123.javatest.models.Name"/>
+    <fullyQualifiedTypeName name="com.spedi123.javatest.models.User"/>
+    <fullyQualifiedTypeName name="com.spedi123.springdemo.models.Name"/>
+    <fullyQualifiedTypeName name="com.spedi123.springdemo.models.User"/>
 </qualifiedTypeNameHistroy>

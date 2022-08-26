@@ -1,7 +1,0 @@
-package com.spedi123.javaexam.models;
-
-@Entity
-@Table(name="students")
-public class Student {
-
-}

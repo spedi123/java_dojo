@@ -1,8 +1,0 @@
-package com.spedi123.javaexam.repositories;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface StudentRepo extends CrudRepository<Student, Long> {
-
-}
